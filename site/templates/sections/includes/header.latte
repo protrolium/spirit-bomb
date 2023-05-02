@@ -1,7 +1,36 @@
-<header class='tmg-box-inner' {alfred($page)}>
-  ## header.latte ##
-  <p class='note'>
-    Try hovering over this block. You should see icons on the top right corner to edit the current page.<br>
-    <strong n:if="$user->isLoggedin()">You are logged in - hover this block</strong>
-    <strong n:if="!$user->isLoggedin()">You are not logged in so you will not see ALFRED</strong>
+<header>
+    <div class="uk-width-1-1 uk-navbar-transparent">
+        <nav class="" uk-navbar>  {* uk-navbar-container *}
+            
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    
+                    {* add home + children pages to navItems *}
+                    {var $navItems = new \ProcessWire\PageArray()}
+                    {do $navItems->add($home)}
+                    
+                    {foreach $home->children() as $children}
+                        {do $navItems->add($children)}
+                    {/foreach}
+                    
+                    {* build the menu *}
+                    {foreach $navItems as $item}
+                        <li n:class="$rockfrontend->isActive($item) ? uk-active">
+                            <a href="{$item->url}">{$item->title}</span></a>
+                        </li>
+                    {/foreach}
+                </ul>
+
+                <div id="logo-header" class="uk-padding-small sb-nav-logo">
+                    <a class="" href="{$pages->get('/')->url}">
+                        <img 
+                            src="{$pages->get('sb-logo-main')->featured_image->first->url}" 
+                            width="50" height="50" alt="{$pages->get('/')->title}"
+                        >
+                    </a>
+                </div>
+            
+            </div>
+
+        </nav>
 </header>

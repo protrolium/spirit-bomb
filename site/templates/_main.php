@@ -16,8 +16,8 @@
 $home = $pages->get('/'); // homepage directory
 $rockfrontend->styles()
 	->add("/site/templates/uikit/src/less/uikit.theme.less")
-	->addDefaultFolders()
 	->add("/site/templates/styles/custom.less")
+	->addDefaultFolders()
 	;
 $rockfrontend
 	->scripts()
@@ -78,9 +78,10 @@ $rockfrontend
 		<!-- show our site content -->
 		<!-- <style>html{visibility: visible;opacity:1;}</style> -->
 
-		<!-- scripts for once DOM is loaded -->
 		<!-- unhide the site content set via inline css above -->
 		<script type="text/javascript">window.addEventListener('load', function () {document.body.classList.remove('preload');});</script>
+
+		<!-- scripts for once DOM is loaded -->
 		<script type="text/javascript" src="<?php echo $config->urls->templates?>scripts/onload.js" defer></script>
 	</body>
 </html>

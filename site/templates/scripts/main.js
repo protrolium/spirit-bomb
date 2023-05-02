@@ -1,6 +1,6 @@
 // theme switcher
 const html = document.querySelector('html');
-html.dataset.theme = `theme-light`;
+html.dataset.theme = `theme-dark`;
 let darkMode = localStorage.getItem('dark-mode');
 
 function switchTheme(theme) {
