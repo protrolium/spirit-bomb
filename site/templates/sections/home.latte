@@ -6,12 +6,12 @@
         
         {* mobile subtitle *}
         <div class="uk-margin-medium uk-padding-large uk-height-medium uk-hidden@m">
-            <p class="uk-text-center uk-text-uppercase uk-text-muted uk-text-small">Art Above Ego / Virtual Beings Label / 爆魂</p>
+            <p class="uk-text-center uk-text-uppercase uk-text-muted uk-text-small">Virtual Beings Label ↩︎ Art Above Ego</p>
         </div>
 
         {* desktop subtitle *}
         <div class="uk-margin-large uk-padding-large uk-padding-remove-right uk-margin-remove-right uk-height-medium uk-visible@m">
-            <p class="uk-align-right uk-text-uppercase uk-text-muted">Art Above Ego / Virtual Beings Label / 爆魂</p>
+            <p class="uk-align-right uk-text-uppercase uk-text-muted">⇲ Virtual Beings Collective<br>⌖ MOTTO: Art Above Ego</p>
         </div>
 
         {* mobile heading *}
@@ -30,40 +30,84 @@
             style="background-image: url({$pages->get('xen-fractal-dream')->featured_image->first->url});">
         </div>
 
-        {* about text *}
-        <div class="uk-margin-large uk-padding-large uk-padding-remove-top">
-            <p class="uk-text-large uk-text-center">Spirit Bomb is a media label born from the combined contributions of Virtuals and Humans. It serves as a vehicle for creative collaboration between the IRL and Metaverse worlds as they begin to collide.</p>
+        {* about mobile text *}
+        <div class="uk-margin-large uk-padding-large uk-padding-remove-top uk-hidden@m">
+            <p class="uk-text-large uk-text-center">
+                Spirit Bomb is a media label born from the combined contributions of 
+                <span style="font-family: Epilogue-ExtraLight; color:LightPink;">Virtuals</span> and 
+                <span style="font-family: Epilogue-ExtraLight; color:LightBlue;">Humans</span>. 
+                It serves as a vehicle for creative collaboration between the IRL and Metaverse worlds as they begin to collide.
+            </p>
+        </div>
+
+        {* about desktop text *}
+        <div class="uk-margin-large uk-padding-large uk-padding-remove-top uk-visible@m">
+            <div class="uk-text-center uk-heading-small">
+                <p>
+                    Spirit Bomb is a media label born from the combined contributions of 
+                    <span style="font-family: Epilogue-ExtraLight; color:LightPink;">Virtuals</span> and 
+                    <span style="font-family: Epilogue-ExtraLight; color:LightBlue;">Humans</span>. 
+                    It serves as a vehicle for creative collaboration between the IRL and Metaverse worlds as they begin to collide.
+                </p>
+                <a class="uk-text-large uk-text-emphasis" href="{$pages->get('about')->url}">Continue Reading ⟶</a>
+                <p class="uk-text-muted uk-text-large">爆魂</p>
+            </div>
         </div>
 
     </div>
 
     {* label recents *}
-    <div class="uk-width-1-1 uk-flex uk-height-1-1 uk-padding uk-margin-large-bottom" uk-grid>
+    <div class="uk-width-1-1 uk-flex uk-height-1-1 uk-margin-large-bottom" uk-grid>
         <div class="uk-width-1-4@m">
             <div class="uk-flex uk-flex-middle uk-height-1-1">
-                <div class="uk-flex uk-flex-column">
+                <div class="uk-flex uk-flex-column uk-padding-small">
                     <p class="uk-text-muted uk-text-uppercase uk-text-large">Label</p>
                     {* <img src="{$pages->get('sb-logo-amulet-light')->featured_image->first->url}" alt="" class="uk-width-1-2" /> *}
-                    <p class="uk-heading-large sb-font">Music</p>
-                    <p class="uk-text-large">Explore Catalog ⟶</p>
+                    <p class="uk-heading-large uk-text-uppercase">Music</p>
+                    <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('label')->url}">Explore Catalog ⟶</a>
                 </div>
             </div>
         </div>
 
-        <div class="uk-width-3-4@m uk-height-large uk-flex uk-flex-row" uk-grid>
+        <div class="uk-width-3-4@m uk-flex uk-flex-row" uk-grid uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 300">
             {foreach $pages->find('parent=label, limit=2, sort=created') as $release}
-                <div class="uk-width-1-2@m uk-height-1-1 uk-margin-remove-top">
-                    <div class="uk-padding-small">
+                <div class="uk-width-1-2@m uk-height-1-1 uk-padding-small uk-padding-remove-right">
+                    <div class="">
                         <img src="{$release->featured_image->first->url}" alt="{$release->title}" class="">
                     </div>
                 </div>
             {/foreach}
-            
         </div>
         
     </div>
 
+</div>
 
+{* background img *}
+<div 
+    class="uk-width-1-1 uk-height-viewport uk-flex uk-flex-center uk-flex-middle uk-flex-column uk-background-cover uk-background-secondary uk-background-blend-multiply uk-animation-fade" 
+    style="background-image: url({$pages->get('xen-sb-bg-noise')->featured_image->first->url})">
 
+    {* editions /nft *}
+    <div class="uk-width-1-1 uk-flex uk-height-1-1 uk-margin-large-bottom" uk-grid>
+        <div class="uk-width-3-4@m uk-flex uk-flex-row" uk-grid uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 300">
+            <div class="uk-width-1-1@m uk-height-1-1 uk-padding-small uk-padding-remove-right">
+                <div class="">
+                    <img src="{$pages->get('nft-array')->featured_image->first->url}" alt="" class="">
+                </div>
+            </div>
+        </div>
+
+        <div class="uk-width-1-4@m">
+            <div class="uk-flex uk-flex-middle uk-height-1-1">
+                <div class="uk-flex uk-flex-column uk-padding-small">
+                    <p class="uk-text-muted uk-text-uppercase uk-text-large">Editions</p>
+                    <p class="uk-heading-large uk-text-uppercase">NFT</p>
+                    <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('editions')->url}">⟵ Browse Drops</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 
 </div>
