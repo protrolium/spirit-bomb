@@ -4,8 +4,84 @@
     text-transform: none;
 }
 
-.uk-navbar-nav > li.uk-active > a {
+.offcanvas-mobile > li {
+    display: block;
+    list-style: none;
+    padding-bottom: 1rem;
+}
+
+.offcanvas-mobile > li > a {
+    color: #999999;
+}
+
+.uk-navbar-nav > li.uk-active > a, .offcanvas-mobile > li.uk-active > a {
     color: #eeeeee;
     font-weight: 700;
 }
 
+header {
+    background-color: var(--bg-color);
+}
+
+button.hamburger-nav, .theme-toggle {
+    background-color: transparent;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    padding: 2px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+button.theme-toggle:hover {
+    cursor: pointer;
+}
+
+.uk-offcanvas-close {
+    cursor: pointer;
+    z-index: 2000;
+}
+
+.offcanvas-nav-h1 {
+    margin-top: 0.5rem;
+}
+
+// fix mobile x menu nav button not always working
+svg {
+    pointer-events: none;
+  }
+
+#menu {
+    z-index: 1000;
+}
+
+.uk-offcanvas-container {
+    background-color: var(--bg-color);
+    z-index: 1000;
+}
+
+button.hamburger-nav {
+    position: relative;
+    z-index: 1;
+}
+
+
+@media screen and (max-width: 767px) {
+    #dark-mode-btn {
+        margin-top: 1px;
+    }
+}
+
+@media (hover: hover) {
+    button.hamburger-nav:hover {
+        cursor: pointer;
+    }
+}
