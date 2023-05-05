@@ -1,8 +1,11 @@
 <header>
     <div class="uk-width-1-1 uk-animation-slide-right-medium">
         
-        <!-- the mobile nav -->
-        <nav class="uk-navbar-container uk-hidden@m" uk-sticky="start: 200; animation: uk-animation-fade; show-on-up: true;" uk-navbar>
+        {* the mobile nav *}
+        <nav 
+            class="uk-navbar-container uk-hidden@m" 
+            uk-sticky="start: 200; animation: uk-animation-fade; show-on-up: true;" 
+            uk-navbar>
 
             <div class="uk-navbar-right uk-padding-small">
 
@@ -13,7 +16,6 @@
                 </div>
             </div>
         </nav>
-        
 
         {* desktop nav *}
         <nav class="uk-visible@m" uk-navbar>
@@ -67,7 +69,7 @@
 
                 {* build the menu *}
                 {foreach $navItems as $item}
-                    <li n:class="$rockfrontend->isActive($item) ? uk-active, uk-text-uppercase, uk-text-large, offcanvas-mobile">
+                    <li n:class="$rockfrontend->isActive($item) ? uk-active, uk-text-large, offcanvas-mobile">
                         {if $item == $home}
                             <a href="{$item->url}">Home</span></a>
                         {else}

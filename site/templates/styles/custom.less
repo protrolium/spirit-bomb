@@ -171,4 +171,20 @@ a.noExternalSVG::after {
 #featured-image-bg.lazyLoad {
     background-image: none !important;
     background-color: var(--bg-color);
- }
+}
+
+.video-container {
+	position: relative;
+	padding-bottom: 57%;
+	padding-top: 35px;
+	height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

@@ -34,18 +34,18 @@
         <div class="uk-margin-large uk-padding-large uk-padding-remove-top uk-hidden@m">
             <p class="uk-text-large uk-text-center">
                 Spirit Bomb is a media label born from the combined contributions of 
-                <span style="font-family: Epilogue-ExtraLight; color:LightPink;">Virtuals</span> and 
+                <span style="font-family: Epilogue-ExtraLight; color:LightCyan;">Virtuals</span> and 
                 <span style="font-family: Epilogue-ExtraLight; color:LightBlue;">Humans</span>. 
                 It serves as a vehicle for creative collaboration between the IRL and Metaverse worlds as they begin to collide.
             </p>
         </div>
 
         {* about desktop text *}
-        <div class="uk-margin-large uk-padding-large uk-padding-remove-top uk-visible@m">
+        <div class="uk-margin-large uk-padding-large uk-padding-remove-top uk-padding-remove-bottom uk-visible@m">
             <div class="uk-text-center uk-heading-small">
                 <p>
                     Spirit Bomb is a media label born from the combined contributions of 
-                    <span style="font-family: Epilogue-ExtraLight; color:LightPink;">Virtuals</span> and 
+                    <span style="font-family: Epilogue-ExtraLight; color:LightCyan;">Virtuals</span> and 
                     <span style="font-family: Epilogue-ExtraLight; color:LightBlue;">Humans</span>. 
                     It serves as a vehicle for creative collaboration between the IRL and Metaverse worlds as they begin to collide.
                 </p>
@@ -56,27 +56,115 @@
 
     </div>
 
+</div>
+
+<div class="uk-width-1-1 uk-height-1-1">
+    <img src="{$pages->get('xen-head-cables-model')->featured_image->first->url}" alt="" class="" />
+</div>
+
+<div 
+    class="uk-width-1-1 uk-height-viewport uk-flex uk-flex-center uk-flex-middle uk-flex-column uk-background-cover uk-background-secondary uk-background-blend-multiply uk-animation-fade" 
+    style="background-image: url({$pages->get('xen-sb-bg-noise')->featured_image->first->url})">
+
+ {* ++++++++++
+    LABEL 
+ +++++++++ *}
+
     {* label recents *}
-    <div class="uk-width-1-1 uk-flex uk-height-1-1 uk-margin-large-bottom" uk-grid>
+    <div class="uk-width-1-1 uk-flex uk-margin-large-top uk-margin-large-bottom" uk-grid>
         <div class="uk-width-1-4@m">
-            <div class="uk-flex uk-flex-middle uk-height-1-1">
+            <div class="uk-flex uk-flex-middle">
                 <div class="uk-flex uk-flex-column uk-padding-small">
                     <p class="uk-text-muted uk-text-uppercase uk-text-large">Label</p>
-                    {* <img src="{$pages->get('sb-logo-amulet-light')->featured_image->first->url}" alt="" class="uk-width-1-2" /> *}
                     <p class="uk-heading-large uk-text-uppercase">Music</p>
                     <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('label')->url}">Explore Catalog ⟶</a>
+                    <div class="uk-flex uk-flex-row uk-flex-wrap-around uk-margin-medium-top" uk-grid uk-scrollspy="target: > img; cls:uk-animation-fade; delay: 300">
+                        <img src="{$pages->get('spotify')->featured_image->first->url}" alt="" width="24%"/>
+                        <img src="{$pages->get('mixcloud')->featured_image->first->url}" alt="" width="30%"/>
+                        <img src="{$pages->get('youtube')->featured_image->first->url}" alt="" width="25%" />
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="uk-width-3-4@m uk-flex uk-flex-row" uk-grid uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 300">
             {foreach $pages->find('parent=label, limit=2, sort=created') as $release}
-                <div class="uk-width-1-2@m uk-height-1-1 uk-padding-small uk-padding-remove-right">
-                    <div class="">
+                <div class="uk-width-1-2@m uk-padding-small uk-padding-remove-right">
+                    <div class="uk-margin-auto" uk-grid>
                         <img src="{$release->featured_image->first->url}" alt="{$release->title}" class="">
                     </div>
                 </div>
             {/foreach}
+        </div>
+    </div>
+
+    {* video embed, if it exits *}
+    {if $page??->video_embed}
+        <div class="uk-padding-large uk-width-1-1 uk-flex-center">
+            <div class="page-item uk-width-1-1 video-container uk-margin-small" uk-flex>
+                {$page->get('video_embed')|noescape}
+            </div>
+        </div>
+    {/if}
+
+</div>
+
+{* poster image *}
+{* <div class="uk-width-1-1 uk-height-1-1 uk-animation-fade">
+    <img src="{$pages->get('lv4-live-zeds-dead-deadbeats-la')->featured_image->first->url}" alt="" class="" />
+</div> *}
+
+{* background img *}
+<div 
+    class="uk-width-1-1 uk-height-viewport uk-flex uk-flex-center uk-flex-middle uk-flex-column uk-background-cover uk-background-secondary uk-background-blend-multiply uk-animation-fade" 
+    style="background-image: url({$pages->get('xen-sb-bg-noise')->featured_image->first->url})">
+
+ {* +++++++++++++
+    EDITIONS 
+ +++++++++++++ *}
+
+    {* editions /nft content *}
+    
+    {* header mobile *}
+    <div class="uk-width-1-4@m uk-hidden@m">
+            <div class="uk-flex uk-flex-middle uk-height-1-1">
+                <div class="uk-flex uk-flex-column uk-padding-small">
+                    <p class="uk-text-muted uk-text-uppercase uk-text-large">Editions</p>
+                    <p class="uk-heading-large uk-text-uppercase">NFT</p>
+                    <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('editions')->url}">Browse Drops ⟶</a>
+                    <div class="uk-flex uk-flex-row uk-flex-wrap-around uk-margin-medium-top" uk-grid uk-scrollspy="target: > img; cls:uk-animation-fade; delay: 300">
+                        <img src="{$pages->get('zora')->featured_image->first->url}" alt="" width="25%"/>
+                        <img src="{$pages->get('foundation')->featured_image->first->url}" alt="" width="25%"/>
+                        <img src="{$pages->get('opensea')->featured_image->first->url}" alt="" width="40%" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {* nft image *}
+    <div class="uk-width-1-1 uk-flex uk-height-1-1 uk-margin-large-bottom" uk-grid>
+        <div class="uk-width-3-4@m uk-flex uk-flex-row" uk-grid uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 300">
+            <div class="uk-width-1-1@m uk-height-1-1 uk-padding-small uk-padding-remove-right">
+                <div class="uk-margin-auto" uk-grid>
+                    <img src="{$pages->get('nft-array')->featured_image->first->url}" alt="" class="">
+                </div>
+            </div>
+        </div>
+
+        {* header desktop *}
+        <div class="uk-width-1-4@m uk-visible@m">
+            <div class="uk-flex uk-flex-middle uk-height-1-1">
+                <div class="uk-flex uk-flex-column uk-padding-small">
+                    <p class="uk-text-muted uk-text-uppercase uk-text-large">Editions</p>
+                    <p class="uk-heading-large uk-text-uppercase">NFT</p>
+                    <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('editions')->url}">⟵ Browse Drops</a>
+                    <div class="uk-flex uk-flex-row uk-flex-wrap-around uk-margin-medium-top" uk-grid uk-scrollspy="target: > img; cls:uk-animation-fade; delay: 300">
+                        <img src="{$pages->get('zora')->featured_image->first->url}" alt="" width="40%"/>
+                        <img src="{$pages->get('foundation')->featured_image->first->url}" alt="" width="40%"/>
+                        <img src="{$pages->get('opensea')->featured_image->first->url}" alt="" width="70%" />
+                    </div>
+                </div>
+            </div>
         </div>
         
     </div>
@@ -88,26 +176,20 @@
     class="uk-width-1-1 uk-height-viewport uk-flex uk-flex-center uk-flex-middle uk-flex-column uk-background-cover uk-background-secondary uk-background-blend-multiply uk-animation-fade" 
     style="background-image: url({$pages->get('xen-sb-bg-noise')->featured_image->first->url})">
 
-    {* editions /nft *}
-    <div class="uk-width-1-1 uk-flex uk-height-1-1 uk-margin-large-bottom" uk-grid>
-        <div class="uk-width-3-4@m uk-flex uk-flex-row" uk-grid uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 300">
-            <div class="uk-width-1-1@m uk-height-1-1 uk-padding-small uk-padding-remove-right">
-                <div class="">
-                    <img src="{$pages->get('nft-array')->featured_image->first->url}" alt="" class="">
-                </div>
-            </div>
-        </div>
-
+ {* +++++++++++++
+    NEWS 
+ +++++++++++++ *}
+    
+    {* latest article *}
+    <div class="uk-width-1-1 uk-flex uk-margin-large-top uk-margin-large-bottom" uk-grid>
         <div class="uk-width-1-4@m">
-            <div class="uk-flex uk-flex-middle uk-height-1-1">
+            <div class="uk-flex uk-flex-middle">
                 <div class="uk-flex uk-flex-column uk-padding-small">
-                    <p class="uk-text-muted uk-text-uppercase uk-text-large">Editions</p>
-                    <p class="uk-heading-large uk-text-uppercase">NFT</p>
-                    <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('editions')->url}">⟵ Browse Drops</a>
+                    <p class="uk-text-muted uk-text-uppercase uk-text-large">News</p>
+                    <p class="uk-heading-large uk-text-uppercase"></p>
+                    <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('news')->url}">Continue ⟶</a>
                 </div>
             </div>
         </div>
-        
-    </div>
 
 </div>
