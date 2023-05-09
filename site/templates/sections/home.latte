@@ -58,17 +58,20 @@
 
 </div>
 
+{* hero image *}
 <div class="uk-width-1-1 uk-height-1-1">
     <img src="{$pages->get('xen-head-cables-model')->featured_image->first->url}" alt="" class="" />
 </div>
+
+
+ {* ++++++++++
+    LABEL 
+ +++++++++ *}
 
 <div 
     class="uk-width-1-1 uk-height-viewport uk-flex uk-flex-center uk-flex-middle uk-flex-column uk-background-cover uk-background-secondary uk-background-blend-multiply uk-animation-fade" 
     style="background-image: url({$pages->get('xen-sb-bg-noise')->featured_image->first->url})">
 
- {* ++++++++++
-    LABEL 
- +++++++++ *}
 
     {* label recents *}
     <div class="uk-width-1-1 uk-flex uk-margin-large-top uk-margin-large-bottom" uk-grid>
@@ -171,25 +174,67 @@
 
 </div>
 
+
+ {* +++++++++++++
+    NEWS 
+ +++++++++++++ *}
+
 {* background img *}
 <div 
     class="uk-width-1-1 uk-height-viewport uk-flex uk-flex-center uk-flex-middle uk-flex-column uk-background-cover uk-background-secondary uk-background-blend-multiply uk-animation-fade" 
     style="background-image: url({$pages->get('xen-sb-bg-noise')->featured_image->first->url})">
 
- {* +++++++++++++
-    NEWS 
- +++++++++++++ *}
-    
     {* latest article *}
-    <div class="uk-width-1-1 uk-flex uk-margin-large-top uk-margin-large-bottom" uk-grid>
-        <div class="uk-width-1-4@m">
+    <div 
+        class="uk-width-1-1 uk-flex uk-margin-large-top uk-margin-large-bottom uk-grid-collapse" uk-grid
+        uk-scrollspy="target: > div; cls:uk-animation-fade; delay: 300">
+        
+        <div class="uk-width-1-2@m">
             <div class="uk-flex uk-flex-middle">
-                <div class="uk-flex uk-flex-column uk-padding-small">
+                <div class="uk-flex uk-flex-column uk-padding-large">
                     <p class="uk-text-muted uk-text-uppercase uk-text-large">News</p>
-                    <p class="uk-heading-large uk-text-uppercase"></p>
-                    <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('news')->url}">Continue ⟶</a>
+                    <p class="uk-text-muted uk-margin-remove">
+                        <span style="position:relative;top:-2.8px;" uk-icon="icon: world; ratio: 1.3"></span>
+                        &nbsp;
+                        <span class="uk-text-default uk-text-middle">{$pages->get('news')->children()->first->date}</span>
+                    </p>
+                
+                    <p class="uk-text-uppercase uk-heading-medium">
+                        <a class="uk-text-emphasis" href="{$pages->get('news')->url}">
+                            {$pages->get('news')->children()->first->title}
+                        </a>
+                    </p>
+                    
+                    {var $summary = $pages->get('news')->children()->first->body}
+                    
+                    <div class="uk-margin-small-bottom">
+                        <span class="uk-text-muted uk-text-large">{$summary|stripHtml|noescape|truncate:200}</span>
+                    </div>
+                    
+                    <span class="">
+                        {foreach $pages->get('news')->children()->first->categories as $item}
+                            <span style="position:relative;top:-2.8px;" uk-icon="icon: hashtag; ratio: 1"></span>
+                            <a class="uk-text-emphasis uk-button uk-button-text uk-text-small">{$item->title}</a>
+                        {/foreach}
+                    </span>
+                    <br>
+                    <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('news')->children()->first->url}">Continue ⟶</a>
+                    <br>
+                    <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('news')->url}">View all ⟶</a>
                 </div>
             </div>
         </div>
 
+        <div class="uk-width-1-2@m">
+            <div class="uk-padding-remove uk-animation-fade">
+                <a href="{$pages->get('news')->children()->first->url}"><img src="{$pages->get('news')->children()->first->featured_image->first->url}" alt="" class="" /></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{* hero image *}
+<div class="uk-width-1-1 uk-height-1-1">
+    <img src="{$pages->get('subi-origins-crystal')->featured_image->first->url}" alt="" class="" />
 </div>

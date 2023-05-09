@@ -188,3 +188,36 @@ a.noExternalSVG::after {
 	width: 100%;
 	height: 100%;
 }
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: max-content
+}
+
+.hover-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s; /* Adjust the duration of the fade animation (e.g., 0.3s) */
+    cursor: pointer;
+}
+
+.hover-image {
+    opacity: 0;
+}
+
+.image-container:hover .hover-image {
+    opacity: 1;
+}
+
+.image-container:hover .default-image {
+    opacity: 0;
+}
+
+.footer-socials:hover { 
+    filter: invert(80%);
+}
