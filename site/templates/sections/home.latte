@@ -101,14 +101,13 @@
         </div>
     </div>
 
-    {* video embed, if it exits *}
-    {if $page??->video_embed}
-        <div class="uk-padding-large uk-width-1-1 uk-flex-center">
-            <div class="page-item uk-width-1-1 video-container uk-margin-small" uk-flex>
-                {$page->get('video_embed')|noescape}
-            </div>
+    {* video embed *}
+    <div class="uk-padding-large uk-width-1-1 uk-flex-center">
+        <div class="page-item uk-width-1-1 video-container uk-margin-small" uk-flex>
+            {$pages->get('harrison-ford-official-music-video')->embed_code|noescape}
         </div>
-    {/if}
+    </div>
+
 
 </div>
 
