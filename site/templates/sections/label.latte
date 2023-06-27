@@ -13,35 +13,43 @@
                     <div 
                         class="uk-card-media-top uk-cover-container uk-background-cover"
                         style="background-image: url('{$item->featured_image->first->url}');">
-
-                            <a class="removeTextDecoration" href="{$item->url}" alt="">
-                                <canvas width="1200" height="1200"></canvas>
+                            <canvas width="1200" height="1200"></canvas>
                             
-                                <div class="uk-overlay-primary uk-position-cover uk-hidden uk-animation-fade release-details"></div>
+                            <a style="display:block;" class="removeTextDecoration" href="{$item->url}" alt="">
+                            <span class="link-spanner"></span></a>
+                            
+                            <div class="uk-overlay-primary uk-position-cover uk-hidden release-details"></div>
+                                
                                 <div 
                                     class="uk-overlay uk-position-top uk-dark uk-hidden release-details"
                                     uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 100; repeat: true;">                                
                                     
-                                    {* release type *}
-                                    <span 
-                                        class="uk-text-small uk-background-primary uk-border-rounded uk-text-secondary" 
-                                        style="padding:8px 5px 4px 5px;">
-                                            {$item->release_type->first->title}<br>
-                                    </span>
+                                    <div style="margin-bottom:0.7vh;">
+                                        
+                                        {* release type *}
+                                        <span 
+                                            class="uk-background-primary uk-border-rounded uk-text-secondary" 
+                                            style="font-size:0.9vw; padding:8px 1px 4px 5px;">
+                                                {$item->release_type->first->title}
+                                        </span>
+                                        
+                                        &nbsp;
+                                        
+                                        {* catalog number *}
+                                        <span class="uk-text-secondary" style="font-size:0.9vw;">
+                                            {$item->catalog_number}
+                                        </span>
+                                    </div>
                                         
                                     {* release title *}
-                                    <span class="uk-heading-medium sb-font uk-margin-remove-bottom">
+                                    <span class="sb-font" style="font-size:4.7vw;line-height:1em;">
                                         {$item->title}
                                     </span>
+
                                     <br>
                                     
-                                    {* catalog number *}
-                                    <span class="uk-text-secondary">
-                                        {$item->catalog_number}
-                                    </span>
-                                    
                                     {* spirit bomb artist *}
-                                    <p class="uk-card-title">                                    
+                                    <span style="font-size:1.5vw;">                                    
                                         {foreach $item->artist as $index => $artist}
                                             {if ($index+1) < count($item->artist)}
                                                 <span class="uk-text-secondary">
@@ -53,19 +61,21 @@
                                                 </span>
                                             {/if}
                                         {/foreach}                                       
-                                    </p>
+                                    </span>
+
+                                    <br>
 
                                     {* featuring collaborators *}
-                                    <p class="uk-text-small uk-text-secondary uk-margin-remove-top">
+                                    <p class="uk-text-secondary" style="font-size:0.8vw;">
                                         <span class="uk-text-muted">Featuring</span>
                                         <br>
                                         {foreach $item->collaborator as $index => $collab}
                                             {if ($index+1) < count($item->collaborator)}
-                                                <span class="uk-text-capitalize uk-text-default">
+                                                <span class="uk-text-capitalize uk-text-default" style="font-size:1vw;">
                                                     {$collab->title}<br>
                                                 </span>
                                             {else}
-                                                <span class="uk-text-capitalize uk-text-default">
+                                                <span class="uk-text-capitalize uk-text-default" style="font-size:1vw;">
                                                     {$collab->title}    
                                                 </span>
                                             {/if}
@@ -74,24 +84,23 @@
 
 
                                     {* platform icons *}
-                                    <div class="">
+                                    <div style="display:inline; position:relative; z-index:2;">
                                         {foreach $item->children() as $platform}                                            
                                             <a class="removeTextDecoration" href="{$platform->platform_url}" target="_blank" alt="{$platform->title}">
                                             
                                                 <img 
                                                     src="{$platform->platform_icon->featured_image->first->url}"
                                                     class="uk-margin-small-right music-platforms"
-                                                    style="width:30px;"
+                                                    style="width:2vw;"
                                                 >
                                             </a>
                                         {/foreach}
                                     </div>
                                 </div>
-                            
-                            </a>
                     </div>
         
                 </div>
+                
             {/foreach}
     </div>
 </section>

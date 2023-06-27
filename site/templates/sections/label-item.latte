@@ -1,0 +1,124 @@
+<section class="uk-height-viewport uk-padding-small">
+   
+    <div 
+        class="uk-height-viewport uk-grid-small" uk-grid
+        uk-scrollspy="cls: uk-animation-fade; target: > div; delay: 550; repeat: false;">
+
+        {* release image *}    
+        <div class="uk-width-1-2@m"> 
+            <img src="{$page->featured_image->first->url}" alt="" />
+        </div>
+
+        <div class="uk-width-1-2@m">
+            {* release type *}
+            <span 
+                class="uk-background-primary uk-border-rounded uk-text-secondary uk-text-default" 
+                style="padding:8px 1px 6px 5px;">
+                    <span class="uk-margin-small-right" uk-icon="icon: info; ratio: 1"></span>{$page->release_type->first->title}
+            </span>
+            
+            &nbsp;
+            
+            {* catalog number *}
+            <span class="uk-text-secondary uk-text-default">
+                {$page->catalog_number}
+            </span>
+
+            &nbsp;
+
+            {* release date *}
+            <span 
+                class="uk-background-secondary uk-border-rounded uk-text-secondary uk-text-default" 
+                style="padding:8px 1px 6px 5px;">
+                    <span class="uk-margin-small-right" uk-icon="icon: calendar; ratio: 1"></span>Release Date
+            </span>
+
+            &nbsp;
+
+            <span class="uk-text-secondary uk-text-default">
+                {$page->date}
+            </span>
+        
+            <br>
+            
+            {* release title *}
+            <span class="sb-font uk-heading-large" style="line-height:1.4em;">
+                {$page->title}
+            </span>
+
+            <br>
+            
+            {* spirit bomb artist *}
+            <span class="uk-text-muted uk-text-large">Virtual Artist</span>
+            
+            <br>
+
+            <span class="uk-heading-small">                                    
+                {foreach $page->artist as $index => $artist}
+                    {if ($index+1) < count($page->artist)}
+                        <span class="uk-text-secondary">
+                            {$artist->title} / 
+                        </span>
+                    {else}
+                        <span class="uk-text-secondary">
+                            {$page->artist->first->title} 
+                        </span>
+                    {/if}
+                {/foreach}                                       
+            </span>
+
+            <br>
+
+            {* featuring collaborators *}
+            <p class="uk-text-secondary uk-text-large">
+                <span class="uk-text-muted">Collaborators</span>
+                <br>
+                {foreach $page->collaborator as $index => $collab}
+                    {if ($index+1) < count($page->collaborator)}
+                        <span class="uk-text-capitalize uk-text-large">
+                            {$collab->title}<br>
+                        </span>
+                    {else}
+                        <span class="uk-text-capitalize uk-text-large">
+                            {$collab->title}    
+                        </span>
+                    {/if}
+                {/foreach}
+            </p>
+
+            <div class="uk-text-secondary uk-text-small uk-margin-medium-bottom">
+                <span class="uk-margin-small-right" uk-icon="icon: database; ratio: 1"></span>
+                <span>View this release in the <a class="noExternalSVG" href="{$page->wiki_link}" target="_blank">Wiki</a></span>
+            </div>
+
+            {* platform icons *}
+            <div class="uk-flex uk-flex-column" uk-grid>
+                <div class="uk-text-large uk-text-muted">
+                    <p class="uk-margin-small-bottom">Platforms</p>
+                </div>
+
+                {foreach $page->children() as $platform}                                            
+                    <div class="uk-margin-small-bottom uk-margin-remove-top">
+                        <a class="removeTextDecoration" href="{$platform->platform_url}" target="_blank" alt="{$platform->title}">                    
+                            <img src="{$platform->platform_icon->featured_image->first->url}" class="uk-margin-small-right music-platforms">
+                            <span class="uk-text-default">{$platform->title}</span>
+                        </a>
+                    </div>
+                {/foreach}
+
+            </div>
+
+        </div>
+
+
+    </div>
+    
+    <div class="uk-padding-large" uk-flex uk-scrollspy="cls:uk-animation-fade">
+        {foreach $page->video_embed as $video}
+            <div class="video-container uk-margin-medium-bottom">
+                {$video->embed_code|noescape}
+            </div>
+        {/foreach}
+    </div>
+
+</section>
