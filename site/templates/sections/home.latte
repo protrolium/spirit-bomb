@@ -94,7 +94,7 @@
             {foreach $pages->find('parent=label, limit=2, sort=created') as $release}
                 <div class="uk-width-1-2@m uk-padding-small uk-padding-remove-right">
                     <div class="uk-margin-auto" uk-grid>
-                        <img src="{$release->featured_image->first->url}" alt="{$release->title}" class="">
+                        <a href="{$release->url}" alt=""><img src="{$release->featured_image->first->url}" alt="{$release->title}" class=""></a>
                     </div>
                 </div>
             {/foreach}
