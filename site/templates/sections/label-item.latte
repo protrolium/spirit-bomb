@@ -15,7 +15,7 @@
                 {* release type *}
                 <div class="uk-text-secondary uk-text-default uk-margin-small-bottom">
                     <span class="uk-background-primary uk-border-rounded" style="padding:8px 5px 6px 5px;">
-                    <span class="uk-margin-small-right" uk-icon="icon: info; ratio: 1"></span>
+                    <span class="uk-margin-small-right" uk-icon="icon: play-circle; ratio: 1"></span>
                         {$page->release_type->first->title}
                     </span>
 
@@ -69,7 +69,7 @@
                                 </span>
                             {else}
                                 <span class="uk-text-secondary">
-                                    {$page->artist->first->title} 
+                                    {$artist->title} 
                                 </span>
                             {/if}
                         {/foreach}                                       
@@ -78,37 +78,29 @@
                     <br>
 
                     {* featuring collaborators *}
-                    <p class="uk-text-secondary uk-text-large">
+                    <p class="uk-text-secondary uk-text-large uk-margin-medium-bottom">
                         <span class="uk-text-muted">Collaborators</span>
                         <br>
                         {foreach $page->collaborator as $index => $collab}
                             {if ($index+1) < count($page->collaborator)}
                                 <span class="uk-text-capitalize uk-text-large">
-                                    {$collab->title}<br>
+                                    {if $collab??->link}
+                                        <a class="smallExternalSVG uk-text-secondary" href="{$collab->link}" target="_blank">{$collab->title}</a><br>
+                                    {else}
+                                        {$collab->title}
+                                    {/if}
                                 </span>
                             {else}
                                 <span class="uk-text-capitalize uk-text-large">
-                                    {$collab->title}    
+                                    {if $collab??->link}
+                                        <a class="smallExternalSVG uk-text-secondary" href="{$collab->link}" target="_blank">{$collab->title}</a>
+                                    {else}
+                                        {$collab->title}
+                                    {/if}
                                 </span>
                             {/if}
                         {/foreach}
                     </p>
-
-                    <div class="uk-text-secondary uk-text-small uk-margin-medium-bottom">
-                    
-                    {* Digital Release Disclaimer *}
-                        <span class="uk-margin-small-right uk-margin-small-bottom" uk-icon="icon: info; ratio: 1"></span>
-                        <span>Digital (Only) Format</span>
-                        </span>
-                        <br>
-
-                    {* Wiki link *}
-                        <span class="uk-margin-small-right" uk-icon="icon: database; ratio: 1"></span>
-                        <span>View this release in the <a class="noExternalSVG" href="{$page->wiki_link}" target="_blank">
-                            Wiki</a>
-                        </span>
-
-                    </div>
 
                 </div>    
 
@@ -117,21 +109,61 @@
                 <div class="uk-margin-medium-bottom uk-margin-remove-top">
 
                     {* platform icons *}
-                    <div class="uk-flex uk-flex-column" uk-grid>
+                    <div class="uk-flex uk-flex-column uk-margin-medium-bottom" uk-grid>
                         <div class="uk-text-large uk-text-muted">
                             <p class="uk-margin-small-bottom">Platforms</p>
                         </div>
 
                         {foreach $page->children() as $platform}                                            
                             <div class="uk-margin-small-bottom uk-margin-remove-top">
-                                <a class="removeTextDecoration" href="{$platform->platform_url}" target="_blank" alt="{$platform->title}">                    
-                                    <img src="{$platform->platform_icon->featured_image->first->url}" class="uk-margin-small-right music-platforms">
-                                    <span class="uk-text-default">{$platform->title}</span>
+                                <a class="noTextDecoration" href="{$platform->platform_url}" target="_blank" alt="{$platform->title}">                  
+                                    <img src="{$platform->platform_icon->featured_image->first->url}" class="uk-margin-small-right music-platforms" /></a>
+
+                                <a class="smallExternalSVG uk-text-secondary" href="{$platform->platform_url}" target="_blank" alt="{$platform->title}">
+                                    {$platform->title}
                                 </a>
                             </div>
                         {/foreach}
 
                     </div>
+
+                    <div class="uk-text-secondary uk-text-small uk-margin-medium-bottom">
+
+                        <div class="uk-text-large uk-text-muted">
+                            <p class="uk-margin-small-bottom">Information</p>
+                        </div>
+                    
+                        {* Digital Release Disclaimer *}
+                        <span class="uk-margin-small-right uk-margin-small-bottom" uk-icon="icon: info; ratio: 1"></span>
+                        <span>Digital (Only) Format</span>
+                        </span>
+                        <br>
+
+                        {* Genre Tags *}
+                        <span class="uk-margin-small-right uk-margin-small-bottom" uk-icon="icon: tag; ratio: 1"></span>
+                        {foreach $page->genre_tags as $index => $tags}
+                            {if ($index+1) < count($page->genre_tags)}
+                                <span class="uk-text-secondary uk-text-small uk-margin-small-bottom">
+                                    {$tags->title},
+                                </span>
+                            {else}
+                                <span class="uk-text-secondary uk-text-small uk-margin-small-bottom">
+                                    {$tags->title}
+                                </span>
+                            {/if}
+                        {/foreach}
+                        </span>
+                        <br>
+
+                        {* Wiki link *}
+                        <span class="uk-margin-small-right" uk-icon="icon: database; ratio: 1"></span>
+                        <span>View this release in the <a class="smallExternalSVG uk-text-secondary" href="{$page->wiki_link}" target="_blank">
+                            Wiki</a>
+                        </span>
+
+                    </div>
+
+
                 </div>    
             </div>
 

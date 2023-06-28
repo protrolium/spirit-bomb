@@ -118,6 +118,22 @@
 
                     <div class="uk-margin-remove-top">
                         
+                        {* platform *}
+                        <div class="uk-margin-small-bottom">
+                            <span class="uk-margin-small-right" uk-icon="icon: world; ratio: 1"></span>
+                            <span class="uk-text-small uk-text-muted">Platform</span>
+                            <br>
+                            <span class="uk-text-small" style="margin-left:35px;">
+                                {if $nft->nft_marketplace_icon->first->name == "opensea"}
+                                    <a class="noExternalSVG uk-text-secondary" href="{$nft->nft_marketplace_url}" alt="" target="_blank">Open Sea</a>
+                                {elseif $nft->nft_marketplace_icon->first->name == "zora"}
+                                    <a class="noExternalSVG uk-text-secondary" href="{$nft->nft_marketplace_url}" alt="" target="_blank">Zora</a>
+                                {elseif $nft->nft_marketplace_icon->first->name == "foundation"}
+                                    <a class="noExternalSVG uk-text-secondary" href="{$nft->nft_marketplace_url}" alt="" target="_blank">Foundation</a>
+                                {/if}
+                            </span>
+                        </div>
+                        
                         {* mint date *}
                         <div class="uk-margin-small-bottom">
                             <span class="uk-margin-small-right" uk-icon="icon: calendar; ratio: 1"></span>

@@ -87,12 +87,10 @@
                                     <div style="display:inline; position:relative; z-index:2;">
                                         {foreach $item->children() as $platform}                                            
                                             <a class="removeTextDecoration" href="{$platform->platform_url}" target="_blank" alt="{$platform->title}">
-                                            
                                                 <img 
                                                     src="{$platform->platform_icon->featured_image->first->url}"
                                                     class="uk-margin-small-right music-platforms"
-                                                    style="width:2vw;"
-                                                >
+                                                    style="width:2vw;">
                                             </a>
                                         {/foreach}
                                     </div>
