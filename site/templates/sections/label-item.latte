@@ -34,7 +34,7 @@
                     </span>                        
                     
                     <span class="uk-text-secondary uk-text-default uk-text-middle uk-margin-small-left uk-margin-small-right">
-                        {$page->date}
+                        {$page->date|replace(' 00:00:00', '')}
                     </span>
                 </div>
 
@@ -43,7 +43,7 @@
             <br>
             
             {* release title *}
-            <div class="sb-font uk-heading-xlarge uk-margin-remove" style="line-height:1em;">
+            <div class="sb-font uk-heading-large uk-margin-remove" style="line-height:1em;">
                 {$page->title}
             </div>
 
