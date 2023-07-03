@@ -1,4 +1,4 @@
-<section class="uk-height-viewport uk-padding">
+<section class="uk-height-viewport uk-padding uk-animation-fade">
     
     <div class="uk-width-1-1 uk-child-width-auto@m" uk-scrollspy="cls: uk-animation-fade; target: > div; delay: 550; repeat: false;" uk-grid>
         
@@ -10,7 +10,7 @@
                 <a class="noExternalSVG" href="{$nft->nft_marketplace_url}" alt="" target="_blank">
                     <div 
                         class="uk-card-media-top uk-cover-container uk-background-cover"
-                        style="background-image: url('{$nft->featured_image->first->url}');">
+                        style="background-image: url('{$nft->featured_image->first->url}'); border-radius:20px;">
                             <canvas width="1200" height="1200"></canvas>
                     </div>
                 </a>

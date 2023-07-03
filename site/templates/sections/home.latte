@@ -94,7 +94,9 @@
             {foreach $pages->find('parent=label, limit=2, sort=created') as $release}
                 <div class="uk-width-1-2@m uk-padding-small uk-padding-remove-right">
                     <div class="uk-margin-auto" uk-grid>
-                        <a href="{$release->url}" alt=""><img src="{$release->featured_image->first->url}" alt="{$release->title}" class=""></a>
+                        <a href="{$release->url}" alt="">
+                            <img src="{$release->featured_image->first->url}" alt="{$release->title}" style="border-radius: 20px;">
+                        </a>
                     </div>
                 </div>
             {/foreach}
@@ -191,11 +193,15 @@
         <div class="uk-width-1-2@m">
             <div class="uk-flex uk-flex-middle">
                 <div class="uk-flex uk-flex-column uk-padding-large">
+                    
+                    {* section header *}
                     <p class="uk-text-muted uk-text-uppercase uk-text-large">News</p>
                     <p class="uk-text-muted uk-margin-remove">
                         <span style="position:relative;top:-2.8px;" uk-icon="icon: world; ratio: 1.3"></span>
                         &nbsp;
-                        <span class="uk-text-default uk-text-middle">{$pages->get('news')->children()->first->date}</span>
+
+                        {* publish date *}
+                        <span class="uk-text-default uk-text-middle">{$pages->get('news')->children()->first->date|replace(' 00:00:00', '')}</span>
                     </p>
                 
                     <p class="uk-text-uppercase uk-heading-medium">
@@ -210,6 +216,7 @@
                         <span class="uk-text-muted uk-text-large">{$summary|stripHtml|noescape|truncate:200}</span>
                     </div>
                     
+                    {* categories *}
                     <span class="">
                         {foreach $pages->get('news')->children()->first->categories as $item}
                             <span style="position:relative;top:-2.8px;" uk-icon="icon: hashtag; ratio: 1"></span>

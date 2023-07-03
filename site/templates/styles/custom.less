@@ -127,6 +127,18 @@ h6,
     padding-bottom: 5px;
 }
 
+// link color
+a, .uk-link {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover, .uk-link:hover, .uk-link-toggle:hover .uk-link {
+    color: #fafafa;
+    text-decoration: underline;
+}
+
 // display external link icons
 a[href^="http"]::after,
 a[href^="https://"]::after
@@ -285,6 +297,11 @@ a.removeTextDecoration {
     width: 25px;
     left: -3px;
     margin-right: 5px;
+}
+
+.icon-adjust {
+    position: relative;
+    bottom: 1px;
 }
 
 @media (max-width: 768px) {

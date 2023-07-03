@@ -15,7 +15,7 @@
                 {* release type *}
                 <div class="uk-text-secondary uk-text-default uk-margin-small-bottom">
                     <span class="uk-background-primary uk-border-rounded" style="padding:8px 5px 6px 5px;">
-                    <span class="uk-margin-small-right" uk-icon="icon: play-circle; ratio: 1"></span>
+                    <span class="uk-margin-small-right icon-adjust" uk-icon="icon: info; ratio: 1"></span>
                         {$page->release_type->first->title}
                     </span>
 
@@ -29,7 +29,7 @@
                 {* release date *}
                 <div class="uk-text-secondary uk-text-default">                
                     <span class="uk-background-secondary uk-border-rounded" style="padding:8px 5px 6px 5px;">
-                    <span class="uk-margin-small-right" uk-icon="icon: calendar; ratio: 1"></span>
+                    <span class="uk-margin-small-right icon-adjust" uk-icon="icon: calendar; ratio: 1"></span>
                         Release Date
                     </span>                        
                     
@@ -139,15 +139,15 @@
                         </span>
                         <br>
 
-                        {* Genre Tags *}
+                        {* categories / tags *}
                         <span class="uk-margin-small-right uk-margin-small-bottom" uk-icon="icon: tag; ratio: 1"></span>
                         {foreach $page->genre_tags as $index => $tags}
                             {if ($index+1) < count($page->genre_tags)}
-                                <span class="uk-text-secondary uk-text-small uk-margin-small-bottom">
+                                <span class="uk-text-secondary uk-button uk-button-text uk-text-small">
                                     {$tags->title},
                                 </span>
                             {else}
-                                <span class="uk-text-secondary uk-text-small uk-margin-small-bottom">
+                                <span class="uk-text-secondary uk-button uk-button-text uk-text-small">
                                     {$tags->title}
                                 </span>
                             {/if}
