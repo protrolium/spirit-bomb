@@ -184,6 +184,10 @@ a.noExternalSVG::after {
     display: none !important;
 }
 
+.noExternalSVG > p > a::after {
+    display: none !important;
+}
+
 a.removeTextDecoration {
     text-decoration: none !important;
 }
@@ -302,6 +306,10 @@ a.removeTextDecoration {
 .icon-adjust {
     position: relative;
     bottom: 1px;
+}
+
+.news-item-grid-overlay:hover {
+    filter: sepia(1);
 }
 
 @media (max-width: 768px) {
