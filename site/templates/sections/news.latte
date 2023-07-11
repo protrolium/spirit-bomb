@@ -7,7 +7,7 @@
     {* latest article *}
     <div 
         class="uk-visible@m uk-width-1-1 uk-flex uk-margin-large-top uk-margin-large-bottom uk-grid-collapse" uk-grid
-        uk-scrollspy="target: > div; cls:uk-animation-fade; delay: 300">
+        uk-scrollspy="target: > div; cls:uk-animation-fade; delay: 200; repeat: false;">
         
         <div class="uk-width-1-2@m">
             <div class="uk-flex uk-flex-middle">
@@ -19,11 +19,13 @@
                         &nbsp;
 
                         {* publish date *}
-                        <span class="uk-text-default uk-text-middle">{$pages->get('news')->children()->first->date|replace(' 00:00:00', '')}</span>
+                        <span class="uk-text-default uk-text-middle">
+                            {$pages->get('news')->children()->first->date|replace(' 00:00:00', '')}
+                        </span>
                     </p>
                 
                     <p class="uk-text-uppercase uk-heading-medium">
-                        <a class="uk-text-emphasis" href="{$pages->get('news')->url}">
+                        <a class="uk-text-emphasis" href="{$pages->get('news')->children()->first->url}">
                             {$pages->get('news')->children()->first->title}
                         </a>
                     </p>
