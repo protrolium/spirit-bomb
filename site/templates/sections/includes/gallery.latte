@@ -4,7 +4,7 @@
     {* uk-scrollspy="cls: uk-animation-fade; target: .gallery-item; delay: 250; repeat: false" *}
     
     {if $page->gallery->count() == 1}
-        <div class="uk-width-1-2@s uk-margin-auto uk-padding-remove">
+        <div class="uk-width-2-3@s uk-margin-auto uk-padding-remove">
 
             <a href="{$page->gallery->first->url}" data-caption="{$page->gallery->first->description}" data-fancybox="gallery">
                 <img src="{$page->gallery->first->url}" alt="{$page->gallery->first->description}"/>
