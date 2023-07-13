@@ -1,4 +1,4 @@
-<section class="uk-height-viewport uk-padding uk-animation-fade">
+<section class="uk-height-viewport uk-padding uk-animation-fade uk-overflow-hidden">
     
     <div class="uk-width-1-1 uk-child-width-auto@m" uk-scrollspy="cls: uk-animation-fade; target: > div; delay: 550; repeat: false;" uk-grid>
         
@@ -88,12 +88,14 @@
                         {/if}                
 
                         {* smart contract address *}
-                        <div class="uk-margin-small-bottom">
+                        <div class="uk-width-1-1 uk-margin-small-bottom">
                             <span class="uk-margin-small-right" uk-icon="icon: info; ratio: 1"></span>
                             <span class="uk-text-small uk-text-muted">Smart Contract Address</span>
                             <br>
                             <span class="uk-text-small" style="margin-left:35px;">
-                                <a class="uk-text-secondary noExternalSVG" href="https://etherscan.io/address/{$nft->nft_contract_address}" alt="" target="_blank">{$nft->nft_contract_address}</a>
+                                <a class="uk-text-secondary noExternalSVG" href="https://etherscan.io/address/{$nft->nft_contract_address}" alt="" target="_blank">
+                                    {$nft->nft_contract_address}
+                                </a>
                             </span>
                         </div>
 

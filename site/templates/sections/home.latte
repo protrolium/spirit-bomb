@@ -6,7 +6,7 @@
         
         {* mobile subtitle *}
         <div class="uk-margin-medium uk-padding-large uk-height-medium uk-hidden@m">
-            <p class="uk-text-center uk-text-uppercase uk-text-muted uk-text-small">Virtual Beings Label ↩︎ Art Above Ego</p>
+            <p class="uk-text-center uk-text-uppercase uk-text-muted uk-text-small">Virtual Beings Label<br>↩︎<br>Art Above Ego</p>
         </div>
 
         {* desktop subtitle *}
@@ -211,6 +211,12 @@
                             {$pages->get('news')->children()->first->title}
                         </a>
                     </p>
+
+                    <div class="uk-hidden@m uk-margin-medium-bottom">
+                        <div class="uk-padding-remove uk-animation-fade">
+                            <a href="{$pages->get('news')->children()->first->url}"><img src="{$pages->get('news')->children()->first->featured_image->first->maxWidth(1280)->url}" alt="" class="" /></a>
+                        </div>
+                    </div>
                     
                     {var $summary = $pages->get('news')->children()->first->body}
                     
@@ -233,7 +239,7 @@
             </div>
         </div>
 
-        <div class="uk-width-1-2@m">
+        <div class="uk-visible@m uk-width-1-2@m">
             <div class="uk-padding-remove uk-animation-fade">
                 <a href="{$pages->get('news')->children()->first->url}"><img src="{$pages->get('news')->children()->first->featured_image->first->maxWidth(1280)->url}" alt="" class="" /></a>
             </div>

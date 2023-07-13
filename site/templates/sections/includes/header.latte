@@ -37,7 +37,7 @@
                         <li n:class="$rockfrontend->isActive($item) ? uk-active">
                             {if $item == $home}
                                 <a href="{$item->url}">Home</span></a>
-                            {elseif $item->title == "Wiki"}
+                            {elseif $item->name == "wiki"}
                                 <a class="noExternalSVG" href="https://wiki.spiritbomb.ai" target="_blank">{$item->title}</span></a>
                             {else}
                                 <a href="{$item->url}">{$item->title}</span></a>
@@ -73,6 +73,8 @@
                     <li n:class="$rockfrontend->isActive($item) ? uk-active, uk-text-large, offcanvas-mobile">
                         {if $item == $home}
                             <a href="{$item->url}">Home</span></a>
+                        {elseif $item->name == "wiki"}
+                            <a class="noExternalSVG" href="https://wiki.spiritbomb.ai" target="_blank">{$item->title}</span></a>
                         {else}
                             <a href="{$item->url}">{$item->title}</span></a>
                         {/if}
