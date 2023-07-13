@@ -22,7 +22,7 @@ $rockfrontend->styles()
 	;
 $rockfrontend
 	->scripts()
-	->add("/site/templates/uikit/dist/js/uikit.min.js", "defer")
+	->add("/site/templates/uikit/dist/js/uikit.min.js") // removed ' , "defer") ' which seems to fix FOUC
 	->add("/site/templates/uikit/dist/js/uikit-icons.min.js", "defer")
 	->add("/site/templates/scripts/main.js")
 	;

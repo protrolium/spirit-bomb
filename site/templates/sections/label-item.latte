@@ -162,16 +162,12 @@
                         </span>
 
                     </div>
-
-
-                </div>    
+                </div>  
             </div>
-
         </div>
-
-
     </div>
     
+    {* video embed *}
     <div class="uk-padding-medium" uk-flex uk-scrollspy="cls:uk-animation-fade">
         {foreach $page->video_embed as $video}
             <div class="uk-padding-large">
@@ -180,6 +176,16 @@
                 </div>
             </div>
         {/foreach}
+    </div>
+
+    {* more label items *}
+    <div class="uk-padding uk-animation-fade">
+        <div class="font-bold" style="font-size:3vw;">
+            <h1 class="uk-text-muted uk-heading-line"><span>Explore The Label</span></h1>
+        </div>
+        <div>
+            {$rockfrontend->render("/sections/includes/more-label-items.latte")}
+        </div>
     </div>
 
 </section>
