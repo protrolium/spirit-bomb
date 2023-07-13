@@ -215,7 +215,7 @@
                     {var $summary = $pages->get('news')->children()->first->body}
                     
                     <div class="uk-margin-small-bottom">
-                        <span class="uk-text-muted uk-text-large">{$summary|stripHtml|noescape|truncate:200}</span>
+                        <span class="uk-text-muted uk-text-large">{$summary|noescape|truncate:200}</span>
                     </div>
                     
                     {* categories *}
@@ -235,7 +235,7 @@
 
         <div class="uk-width-1-2@m">
             <div class="uk-padding-remove uk-animation-fade">
-                <a href="{$pages->get('news')->children()->first->url}"><img src="{$pages->get('news')->children()->first->featured_image->first->url}" alt="" class="" /></a>
+                <a href="{$pages->get('news')->children()->first->url}"><img src="{$pages->get('news')->children()->first->featured_image->first->maxWidth(1280)->url}" alt="" class="" /></a>
             </div>
         </div>
     </div>

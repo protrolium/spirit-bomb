@@ -116,7 +116,7 @@
 
                         {foreach $page->children() as $platform}                                            
                             <div class="uk-margin-small-bottom uk-margin-remove-top">
-                                <a class="noTextDecoration" href="{$platform->platform_url}" target="_blank" alt="{$platform->title}">                  
+                                <a class="noTextDecoration noExternalSVG" href="{$platform->platform_url}" target="_blank" alt="{$platform->title}">                  
                                     <img src="{$platform->platform_icon->featured_image->first->url}" class="uk-margin-small-right music-platforms" /></a>
 
                                 <a class="smallExternalSVG uk-text-secondary" href="{$platform->platform_url}" target="_blank" alt="{$platform->title}">

@@ -38,14 +38,15 @@
                         </div>
                         
                         {* categories *}
-                        <span>
+                        <div class="uk-margin-medium-bottom">
                             {foreach $pages->get('news')->children()->first->categories as $item}
                                 <span style="position:relative;top:-2.8px;" uk-icon="icon: hashtag; ratio: 1"></span>
                                 <a class="uk-text-emphasis uk-button uk-button-text uk-text-small">{$item->title}</a>
                             {/foreach}
-                        </span>
-                        <br>
-                        <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('news')->children()->first->url}">Continue ⟶</a>                    
+                        </div>
+                        <div>
+                            <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('news')->children()->first->url}">Continue ⟶</a>                    
+                        </div>
                     </div>
                 </div>
             </div>
