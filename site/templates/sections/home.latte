@@ -152,7 +152,9 @@
         <div class="uk-width-3-4@m uk-flex uk-flex-row" uk-grid uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 300">
             <div class="uk-width-1-1@m uk-height-1-1 uk-padding-small uk-padding-remove-right">
                 <div class="uk-margin-auto" uk-grid>
-                    <img src="{$pages->get('nft-array')->featured_image->first->url}" alt="" class="">
+                    <a class="noExternalSVG" href="{$pages->get('editions')->url}" alt="">
+                        <img src="{$pages->get('nft-array')->featured_image->first->url}" alt="" class="">
+                    </a>
                 </div>
             </div>
         </div>
@@ -231,10 +233,12 @@
                             <a class="uk-text-emphasis uk-button uk-button-text uk-text-small">{$item->title}</a>
                         {/foreach}
                     </span>
-                    <br>
-                    <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('news')->children()->first->url}">Continue ⟶</a>
-                    <br>
-                    <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('news')->url}">View all ⟶</a>
+                    <div class="uk-margin-medium-top">
+                        <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('news')->children()->first->url}">Continue ⟶</a>
+                    </div>
+                    <div class="uk-margin-small-top">
+                        <a class="uk-text-large uk-text-emphasis uk-text-nowrap" href="{$pages->get('news')->url}">View all ⟶</a>
+                    </div>
                 </div>
             </div>
         </div>

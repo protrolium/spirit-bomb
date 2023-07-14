@@ -30,7 +30,7 @@
                 
                 {* marketplace icon *}
                 <div class="uk-margin-medium-bottom">
-                    <a href="{$nft->nft_marketplace_url}" target="_blank">
+                    <a class="noExternalSVG" href="{$nft->nft_marketplace_url}" target="_blank">
                         {if $nft->nft_marketplace_icon->first->name == "opensea"}                  
                             <img class="nft-marketplace-icon-opensea" src="{$nft->nft_marketplace_icon->first->featured_image->first->url}" alt="" />
                         {else}
