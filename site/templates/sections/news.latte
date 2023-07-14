@@ -53,7 +53,9 @@
 
             <div class="uk-width-1-2@m">
                 <div class="uk-padding-remove">
-                    <a href="{$pages->get('news')->children()->first->url}"><img src="{$pages->get('news')->children()->first->featured_image->first->url}" alt="" class="" /></a>
+                    <a href="{$pages->get('news')->children()->first->url}">
+                        <img src="{$pages->get('news')->children()->first->featured_image->first->maxSize(1280,720)->url}" alt="" class="" />
+                    </a>
                 </div>
             </div>
         </div>
