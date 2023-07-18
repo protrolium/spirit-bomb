@@ -12,30 +12,66 @@
         <div class="uk-width-1-2@m uk-margin-remove-bottom">
             <div class="uk-grid-collapse uk-child-width-auto@m" uk-grid>
                 
-                {* release type *}
-                <div class="uk-text-secondary uk-text-default uk-margin-small-bottom">
-                    <span class="uk-background-primary uk-border-rounded" style="padding:8px 5px 6px 5px;">
-                    <span class="uk-margin-small-right icon-adjust" uk-icon="icon: info; ratio: 1"></span>
-                        {$page->release_type->first->title}
-                    </span>
+                {* mobile details *}
+                <div class="uk-hidden@m uk-grid-collapse" uk-grid>
 
-                    {* catalog number *}
-                    <span class="uk-text-secondary uk-text-default uk-text-middle uk-margin-small-left uk-margin-small-right">
-                        {$page->catalog_number}
-                    </span>
+                    {* release type *}
+                    <div class="uk-text-secondary uk-margin-small-bottom" style="font-size:0.7em;">
+                        <span class="uk-background-primary uk-border-rounded" style="padding:5px 2px 4px 3px;">
+                        <span class="icon-adjust" uk-icon="icon: info; ratio: 0.6"></span>
+                            {$page->release_type->first->title}
+                        </span>
+
+                        {* catalog number *}
+                        <span class="uk-text-secondary uk-text-middle uk-margin-small-left uk-margin-small-right">
+                            {$page->catalog_number}
+                        </span>
+                    </div>
+                    
+
+                    {* release date *}
+                    <div class="uk-text-secondary" style="font-size:0.7em;">                
+                        <span class="uk-background-secondary uk-border-rounded" style="padding:5px 2px 4px 4px;">
+                        <span class="icon-adjust" uk-icon="icon: calendar; ratio: 0.6"></span>
+                            Release Date
+                        </span>                        
+                        
+                        <span class="uk-text-secondary uk-text-middle uk-margin-small-left uk-margin-small-right">
+                            {$page->date|replace(' 00:00:00', '')}
+                        </span>
+                    </div>
+
                 </div>
                 
+                {* desktop details *}
+                <div class="uk-visible@m" uk-grid>
 
-                {* release date *}
-                <div class="uk-text-secondary uk-text-default">                
-                    <span class="uk-background-secondary uk-border-rounded" style="padding:8px 5px 6px 5px;">
-                    <span class="uk-margin-small-right icon-adjust" uk-icon="icon: calendar; ratio: 1"></span>
-                        Release Date
-                    </span>                        
+                    {* release type *}
+                    <div class="uk-text-secondary uk-text-default">
+                        <span class="uk-background-primary uk-border-rounded" style="padding:8px 5px 6px 5px;">
+                        <span class="uk-margin-small-right icon-adjust" uk-icon="icon: info; ratio: 1"></span>
+                            {$page->release_type->first->title}
+                        </span>
+
+                        {* catalog number *}
+                        <span class="uk-text-secondary uk-text-default uk-text-middle uk-margin-small-left uk-margin-small-right">
+                            {$page->catalog_number}
+                        </span>
+                    </div>
                     
-                    <span class="uk-text-secondary uk-text-default uk-text-middle uk-margin-small-left uk-margin-small-right">
-                        {$page->date|replace(' 00:00:00', '')}
-                    </span>
+
+                    {* release date *}
+                    <div class="uk-text-secondary uk-text-default">                
+                        <span class="uk-background-secondary uk-border-rounded" style="padding:8px 5px 6px 5px;">
+                        <span class="uk-margin-small-right icon-adjust" uk-icon="icon: calendar; ratio: 1"></span>
+                            Release Date
+                        </span>                        
+                        
+                        <span class="uk-text-secondary uk-text-default uk-text-middle uk-margin-small-left uk-margin-small-right">
+                            {$page->date|replace(' 00:00:00', '')}
+                        </span>
+                    </div>
+
                 </div>
 
             </div>

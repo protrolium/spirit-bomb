@@ -4,8 +4,14 @@
         {* the mobile nav *}
         <nav 
             class="uk-navbar-container uk-hidden@m" 
-            uk-sticky="start: 200; animation: uk-animation-fade; show-on-up: true;" 
+            uk-sticky="start: 500; animation: uk-animation-fade; show-on-up: true;" 
             uk-navbar>
+
+            <div class="uk-navbar-left uk-margin-small-left">
+                <a class="uk-text-lighter uk-text-large uk-text-emphasis" href="{$pages->get('/')->url}">
+                    <img src="{$pages->get('sb-logo-main-e3f5fc')->featured_image->first->url}" alt="" width="40" height="40" />
+                </a>
+            </div>
 
             <div class="uk-navbar-right uk-padding-small">
 

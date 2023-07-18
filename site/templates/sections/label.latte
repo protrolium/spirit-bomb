@@ -8,9 +8,22 @@
                 
                 <div class="uk-card uk-margin-small-bottom release-full">
                     
-                    {* release image *}    
+                    {* release image mobile *}    
                     <div 
-                        class="uk-card-media-top uk-cover-container uk-background-cover"
+                        class="uk-hidden@m uk-card-media-top uk-cover-container uk-background-cover"
+                        style="background-image: url('{$item->featured_image->first->url}'); border-radius: 20px;">
+                            <canvas width="1200" height="1200"></canvas>
+                            
+                            <a style="display:block;" class="removeTextDecoration" href="{$item->url}" alt="">
+                            
+                            <div class="uk-position-cover"></div>
+                            
+                            </a>
+                    </div>
+
+                    {* release image desktop *}    
+                    <div 
+                        class="uk-visible@m uk-card-media-top uk-cover-container uk-background-cover"
                         style="background-image: url('{$item->featured_image->first->url}'); border-radius: 20px;">
                             <canvas width="1200" height="1200"></canvas>
                             
