@@ -167,23 +167,28 @@ DirectoryIndex index.php index.html index.htm
 
   RewriteEngine On
 
-# Output WEBP image URLs from ProcessWire, but redirect them to the
-# JPEG or PNG when the browser does not support WEBP.
+  # Output WEBP image URLs from ProcessWire, but redirect them to the
+  # JPEG or PNG when the browser does not support WEBP.
 
-RewriteCond %{HTTP_ACCEPT} !image/webp [OR]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{DOCUMENT_ROOT}/$1$2$3/$4.jpg -f
-RewriteRule ^(.*?)(site/assets/files/)([0-9]+)/(.*)\.webp(.*)$ /$1$2$3/$4.jpg [R=307,L]
+  RewriteCond %{HTTP_ACCEPT} !image/webp [OR]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}/$1$2$3/$4.jpg -f
+  RewriteRule ^(.*?)(site/assets/files/)([0-9]+)/(.*)\.webp(.*)$ /$1$2$3/$4.jpg [R=307,L]
 
-RewriteCond %{HTTP_ACCEPT} !image/webp [OR]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{DOCUMENT_ROOT}/$1$2$3/$4.jpeg -f
-RewriteRule ^(.*?)(site/assets/files/)([0-9]+)/(.*)\.webp(.*)$ /$1$2$3/$4.jpeg [R=307,L]
+  RewriteCond %{HTTP_ACCEPT} !image/webp [OR]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}/$1$2$3/$4.jpeg -f
+  RewriteRule ^(.*?)(site/assets/files/)([0-9]+)/(.*)\.webp(.*)$ /$1$2$3/$4.jpeg [R=307,L]
 
-RewriteCond %{HTTP_ACCEPT} !image/webp [OR]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{DOCUMENT_ROOT}/$1$2$3/$4.png -f
-RewriteRule ^(.*?)(site/assets/files/)([0-9]+)/(.*)\.webp(.*)$ /$1$2$3/$4.png [R=307,L]
+  RewriteCond %{HTTP_ACCEPT} !image/webp [OR]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}/$1$2$3/$4.png -f
+  RewriteRule ^(.*?)(site/assets/files/)([0-9]+)/(.*)\.webp(.*)$ /$1$2$3/$4.png [R=307,L]
+
+  RewriteCond %{HTTP_ACCEPT} !video/webm [OR]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}/$1$2$3/$4.mp4 -f
+  RewriteRule ^(.*?)(site/assets/files/)([0-9]+)/(.*)\.webm(.*)$ /$1$2$3/$4.mp4 [R=307,L]
  
   
   # 8A. Optionally (O) set a rewrite base if rewrites are not working properly on your server.
@@ -494,9 +499,7 @@ RewriteRule ^(.*?)(site/assets/files/)([0-9]+)/(.*)\.webp(.*)$ /$1$2$3/$4.png [R
   # 20. If using VirtualDocumentRoot (500): comment out the one above and use this one instead
   # ----------------------------------------------------------------------------------------------- 
   
-  # RewriteRule ^(.*)$ /index.php?it=$1 [L,QSA]
-
-</IfModule>
+# RewriteRule ^(.*)$ /index.php?it=$1 [L,QSA]
 
 #################################################################################################
 # END PROCESSWIRE HTACCESS DIRECTIVES
