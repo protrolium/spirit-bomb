@@ -28,4 +28,4 @@ wwwroot/site/modules/*
 wwwroot/site/api/*
 
 # Ignore /wire/ core files
-wwwroot/wire/*
+wwwroot/wire/* 
