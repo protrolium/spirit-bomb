@@ -16,26 +16,44 @@ We are using the RockFrontEnd module to control templates, which are written in 
 
 ```
 root
-└── site
-    └── assets
-        ├── classes
-        │   ├── DefaultPage.php
-        │   └── HomePage.php
-        ├── templates
-        │   ├── home.php
-        │   ├── default-page.php
-        │   ├── news-item.php
-        │   ├── label-item.php
-        │   └── (etc)
-        └── layouts
-            ├── home.php
-            ├── default.php (main rockfrontend renderer)
-            └── sections
-                ├── home.latte
-                ├── label.latte
-                ├── label-item.latte
-                ├── editions.latte
-                └── (etc)
+├── node_modules
+├── src
+│   └── js
+│       ├── walletconnect.js
+│       └── SDK.js
+├── wwwroot
+│   ├── site
+│   │   ├── assets
+│   │   ├── classes
+│   │   │   ├── DefaultPage.php
+│   │   │   └── HomePage.php
+│   │   └── templates
+│   │       ├── scripts
+│   │       │   └── walletconnect-dist.js
+│   │       ├── layouts
+│   │       │   └── default.php
+│   │       ├── sections
+│   │       │   ├── home.latte
+│   │       │   ├── label.latte
+│   │       │   ├── label-item.latte
+│   │       │   ├── editions.latte
+│   │       │   └── (etc)
+│   │       ├── styles
+│   │       │   ├── fonts
+│   │       │   └── custom.less
+│   │       ├── _init.php
+│   │       ├── _main.php
+│   │       ├── home.php
+│   │       ├── default-page.php
+│   │       ├── news-item.php
+│   │       ├── label-item.php
+│   │       └── (etc)
+│   └── wire
+├── .env
+├── .gitignore
+├── package-lock.json
+├── package.json
+└── README.md
 ```
 
 ### Templates & Layouts
