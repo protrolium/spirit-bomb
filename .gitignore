@@ -3,6 +3,10 @@
 
 # Ignore files related to API keys
 .env
+.env.local
+
+# Ignore Node JS src files
+node_modules/
 
 # Ignore files related to PrePros
 prepros.config
@@ -21,6 +25,7 @@ wwwroot/site/templates/uikit/
 # Ignore site assets + modules
 wwwroot/site/assets/*
 wwwroot/site/modules/*
+wwwroot/site/api/*
 
 # Ignore /wire/ core files
 wwwroot/wire/*
