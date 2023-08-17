@@ -44,7 +44,9 @@
                             {if $item == $home}
                                 <a href="{$item->url}">Home</span></a>
                             {elseif $item->name == "wiki"}
-                                <a class="noExternalSVG" href="https://wiki.spiritbomb.ai" target="_blank">{$item->title}</span></a>
+                                <a class="noExternalSVG" href="https://wiki.spiritbomb.ai" target="_blank">
+                                    {$item->title}</span>
+                                </a>
                             {else}
                                 <a href="{$item->url}">{$item->title}</span></a>
                             {/if}
@@ -52,7 +54,11 @@
                     {/foreach}
                 </ul>
 
-                <div id="logo-header" class="uk-padding-small sb-nav-logo">
+                <div classs="uk-animation-fade">
+                    <w3m-core-button id="sb-wallet-connect" icon="hide" label="Connect"></w3m-core-button>
+                </div>
+
+                <div id="logo-header" class="uk-padding-small uk-padding-remove-left sb-nav-logo">
                     <a class="" href="{$pages->get('/')->url}">
                         <img 
                             src="{$pages->get('sb-logo-main')->featured_image->first->url}" 
