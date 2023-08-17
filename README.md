@@ -31,7 +31,8 @@ root
 │   │       ├── scripts
 │   │       │   └── walletconnect-dist.js
 │   │       ├── layouts
-│   │       │   └── default.php
+│   │       │   ├── default.php
+│   │       │   └── home.php
 │   │       ├── sections
 │   │       │   ├── home.latte
 │   │       │   ├── label.latte
@@ -43,7 +44,6 @@ root
 │   │       │   └── custom.less
 │   │       ├── _init.php
 │   │       ├── _main.php
-│   │       ├── home.php
 │   │       ├── default-page.php
 │   │       ├── news-item.php
 │   │       ├── label-item.php
@@ -51,7 +51,7 @@ root
 │   └── wire
 ├── .env
 ├── .gitignore
-├── package-lock.json
+├── package-lock.jsond
 ├── package.json
 └── README.md
 ```
