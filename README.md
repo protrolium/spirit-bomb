@@ -51,7 +51,7 @@ root
 │   └── wire
 ├── .env
 ├── .gitignore
-├── package-lock.jsond
+├── package-lock.json
 ├── package.json
 └── README.md
 ```
