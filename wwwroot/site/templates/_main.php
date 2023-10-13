@@ -40,7 +40,8 @@ $rockfrontend
 		
 		<!-- make sure we get styling on mobile by setting meta viewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title><?php echo $page->title; ?></title>
+		<!-- display additional text if not on homepage -->
+		<title><?php echo ($page->name == 'home' ? $page->title : $page->title . ' — Spirit Bomb'); ?></title>
 		<meta name="description" content="Spirit Bomb is a media label born from the combined contributions of Virtuals and Humans. It serves as a vehicle for creative collaboration between the IRL and Metaverse worlds as they begin to collide.">
 		<meta name="keywords" content="virtual being, virtual artist, spirit bomb, record label, media label, strangeloop studios, future, cybernetic, trap, hip hop, electro pop, glitch hop, doom, metal, artificial intelligence, metis, web3, nft, tokens, wiki, xen, lv4, det, izzi, antifragile, live streams, ai, cyberpunk, artwork, visuals, streamer, ar, skins, avatar">
 		<meta name="generator" content="ProcessWire">
@@ -87,7 +88,7 @@ $rockfrontend
 		<script type="text/javascript" src="<?php echo $config->urls->templates?>scripts/onload.js" defer></script>
 		
 		<!-- WalletConnect -->
-		<script type="module">
+		<!-- <script type="module">
 			import {
 				EthereumClient,
 				w3mConnectors,
@@ -98,6 +99,6 @@ $rockfrontend
 			} from 'https://unpkg.com/@web3modal/ethereum'
 
 			import { Web3Modal } from 'https://unpkg.com/@web3modal/html'
-			</script>
+		</script> -->
 	</body>
 </html>
