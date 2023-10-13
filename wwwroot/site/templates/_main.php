@@ -25,7 +25,7 @@ $rockfrontend
 	->add("/site/templates/uikit/dist/js/uikit.min.js") // removed ' , "defer") ' which seems to fix FOUC
 	->add("/site/templates/uikit/dist/js/uikit-icons.min.js", "defer")
 	->add("/site/templates/scripts/main.js")
-	->add("site/templates/scripts/walletconnect-dist.js", "defer")
+	// ->add("site/templates/scripts/walletconnect-dist.js", "defer")
 	;
 
 ?>
@@ -87,18 +87,5 @@ $rockfrontend
 		<!-- scripts for once DOM is loaded -->
 		<script type="text/javascript" src="<?php echo $config->urls->templates?>scripts/onload.js" defer></script>
 		
-		<!-- WalletConnect -->
-		<!-- <script type="module">
-			import {
-				EthereumClient,
-				w3mConnectors,
-				w3mProvider,
-				WagmiCore,
-				WagmiCoreChains,
-				WagmiCoreConnectors
-			} from 'https://unpkg.com/@web3modal/ethereum'
-
-			import { Web3Modal } from 'https://unpkg.com/@web3modal/html'
-		</script> -->
 	</body>
 </html>
