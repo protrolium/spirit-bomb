@@ -4,5 +4,6 @@
 <?= $rockfrontend->renderIf("sections/editions.latte", "name=editions") ?>
 <?= $rockfrontend->renderIf("sections/news.latte", "name=news") ?>
 <?= $rockfrontend->renderIf("sections/news-item.latte", "template=news") ?>
+<?= $rockfrontend->renderIf("sections/radio.latte", "template=radio") ?>
 <?= $rockfrontend->renderIf("sections/contact.latte", "name=contact") ?>
 
