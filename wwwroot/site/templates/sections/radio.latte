@@ -1,0 +1,37 @@
+{* <div style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <button style="width: 100px; height: 100px; border-radius: 50%; background-color: #fff; border: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 60%; height: 60%; fill: #000;">
+            <path d="M8 5v14l11-7z"/>
+        </svg>
+    </button>
+</div> *}
+
+<main class="uk-height-viewport">
+    {* <div class="uk-position-relative uk-width-1-1 uk-animation-fade">
+        {$pages->get('radio')->children()->shuffle()->first()->embed_code|noescape}
+    </div> *}
+
+    <div 
+        class="uk-position-relative uk-visible-toggle uk-light uk-animation-fade" 
+        uk-slideshow="animation: fade; autoplay: true; autoplay-interval: 7000; pause-on-hover: false;">
+
+        <ul class="uk-slideshow-items">
+            {foreach $pages->get('radio-slideshow')->children()->shuffle() as $slides}
+                <li>
+                    <img src="{$slides->featured_image->first->url}" alt="" uk-cover>
+                </li>
+            {/foreach}
+        </ul>
+
+    </div>
+    
+    <script src="//widget.mixcloud.com/media/js/widgetApi.js" type="text/javascript"></script>
+    <iframe id="my-widget-iframe"></iframe>
+        <script type="text/javascript">
+            var widget = Mixcloud.PlayerWidget(document.getElementById("my-widget-iframe"));
+            widget.ready.then(function() {
+                load('spiritbomb_ai/xen-stage-construction-visualizer-3/', startPlaying=true)
+            });
+        </script>
+
+</main>
