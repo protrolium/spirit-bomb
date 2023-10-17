@@ -4,7 +4,17 @@ style.innerHTML = 'html{visibility: visible;opacity:1;}';
 document.head.appendChild(style);
 
 document.addEventListener("DOMContentLoaded", function() {
-    var lazyloadImages;    
+  // hide links on /radio
+  // let mixcloudLinks = document.querySelectorAll('.hideOnClick');
+
+  //   mixcloudLinks.forEach(function(link) {
+  //       link.addEventListener('click', function(e) {
+  //           e.preventDefault();  // to prevent default link behavior
+  //           this.style.display = 'none';
+  //       });
+  //   });  
+  
+  var lazyloadImages;    
   
     if ("IntersectionObserver" in window) {
       lazyloadImages = document.querySelectorAll(".lazyLoad");
@@ -51,3 +61,8 @@ document.addEventListener("DOMContentLoaded", function() {
       window.addEventListener("orientationChange", lazyload);
     }
 })
+
+// function hideLink() {
+//   const link = document.getElementById('mixcloud-dropdown-link');
+//   link.style.display = 'none';
+// }
