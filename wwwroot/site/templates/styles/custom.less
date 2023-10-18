@@ -337,6 +337,27 @@ a.removeTextDecoration {
 //     margin-top: -200px;
 // } 
 
+.hidden {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.mixcloud-footer-widget-body-wrapper {
+    background-color: #000;
+}
+
 @media (max-width: 768px) {
     .music-platforms {
         width: 5.5vw;
