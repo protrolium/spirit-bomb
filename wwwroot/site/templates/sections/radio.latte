@@ -2,7 +2,7 @@
 <main class="uk-height-viewport"> 
     
     {* Mixcloud Widget Top *}
-    <div class="uk-position-relative uk-width-1-1" style="z-index:900;">
+    {* <div class="uk-position-relative uk-width-1-1" style="z-index:900;">
         <iframe 
             id="mixcloud-widget"
             src="{$pages->get('radio')->children()->shuffle()->first()->link|noescape}" 
@@ -11,7 +11,7 @@
             frameborder="0"
             >
         </iframe>
-    </div>
+    </div> *}
 
     <div class="uk-position-absolute uk-padding-large uk-padding-remove-right uk-position-z-index uk-width-1-1 uk-animation-fade">
         <ul uk-accordion>
@@ -27,7 +27,7 @@
                     {foreach $pages->get('radio')->children() as $mixes}
                         <div class="uk-margin-remove-top" uk-grid>
                             <div>
-                                <a 
+                                {* <a 
                                     class="uk-background-blend-difference" 
                                     style="padding: 5px 10px; background-color: rgba(0,0,0,0.5); color: #fff;"
                                     href="#" 
@@ -35,17 +35,16 @@
                                     onclick="swapIframe(this); return false;"
                                     >
                                         {$mixes->title}
-                                </a> 
+                                </a>  *}
 
                                 {* Mixcloud FooterWidget Test *}
-                                {* <div 
+                                <div 
                                     class="hideOnClick uk-background-blend-difference uk-inline"
-                                    style="padding: 5px 10px; background-color: rgba(0,0,0,0.5); color: #fff; display: block;"
+                                    style="padding: 5px 10px; background-color: rgba(0,0,0,0.5); color: #fff;"
                                     data-mixcloud-play-button="{$mixes->cloudcastkey}" 
-                                    onclick="hideLink()"
                                     >
                                         <a href="#">{$mixes->title}</a>
-                                <div> *}
+                                <div>
                             </div>
                         </div>
                     {/foreach}
@@ -76,7 +75,7 @@
     <script src="//widget.mixcloud.com/media/js/widgetApi.js" type="text/javascript" allow=""></script>
     
     
-    <script>
+    {* <script>
         //document.getElementById('mixcloud-widget').contentWindow.alert = function() {};
         function swapIframe(linkElement) {
             var iframeUrl = linkElement.getAttribute('data-iframe-src');
@@ -95,18 +94,19 @@
                 }, 2000);
             }, 1000);
 
-        }
-    </script>
+        } 
+    </script> *}
 
     {* Mixcloud FooterWidget Test *}
     {* <script src="//widget.mixcloud.com/media/js/footerWidgetApi.js" async>
         {"feed": "/spiritbomb_ai/xen-stream-002/"}
-    </script>
+    </script> *}
+
+    <script src="//widget.mixcloud.com/media/js/footerWidgetApi.js" type="text/javascript"></script>
 
     <script type="text/javascript">
-        var promise = Mixcloud.FooterWidget("/spiritbomb_ai/xen-stream-002/", disableUnloadWarning=true);
-        promise.then(function(widget) {
-        });
-    </script> *}
+        // Create the widget and store the promise
+        var widgetPromise = Mixcloud.FooterWidget("/spiritbomb_ai/xen-stream-002/", { disableUnloadWarning: true });
+    </script>
 
 </main>
