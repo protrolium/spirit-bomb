@@ -4,15 +4,6 @@ style.innerHTML = 'html{visibility: visible;opacity:1;}';
 document.head.appendChild(style);
 
 document.addEventListener("DOMContentLoaded", function() {
-  // hide links on /radio
-  // let mixcloudLinks = document.querySelectorAll('.hideOnClick');
-
-  //   mixcloudLinks.forEach(function(link) {
-  //       link.addEventListener('click', function(e) {
-  //           e.preventDefault();  // to prevent default link behavior
-  //           this.style.display = 'none';
-  //       });
-  //   });  
   
   var lazyloadImages;    
   
