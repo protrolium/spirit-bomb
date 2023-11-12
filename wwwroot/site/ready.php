@@ -29,3 +29,6 @@ if(!defined("PROCESSWIRE")) die();
       $event->return = $event->arguments('page')->children('template=platform-links');
     }
   });
+
+  // access init method from within the custom page RadioPage page class
+  $pages->get("template=radio")->init();
