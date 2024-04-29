@@ -1,0 +1,175 @@
+<section class="uk-height-viewport uk-padding uk-animation-fade uk-overflow-hidden">
+    
+    <div class="uk-width-1-1 uk-child-width-auto@m" uk-scrollspy="cls: uk-animation-fade; target: > div; delay: 550; repeat: false;" uk-grid>
+        
+        {foreach $page->children() as $nft}
+
+            <div class="uk-width-1-3@m uk-card uk-margin-small-bottom">
+                
+                {* nft image *}    
+                <a class="noExternalSVG" href="{$nft->nft_marketplace_url}" alt="" target="_blank">
+                    <div 
+                        class="uk-card-media-top uk-cover-container uk-background-cover"
+                        style="background-image: url('{$nft->featured_image->first->url}'); border-radius:20px;">
+                            <canvas width="1200" height="1200"></canvas>
+                    </div>
+                </a>
+            </div>
+            
+
+            {* 2-3 section *}
+
+            <div class="uk-width-2-3@m">
+                
+                {* nft title *}
+                <h1 class="sb-font uk-heading-medium uk-margin-small-bottom">
+                    <a class="noExternalSVG uk-text-secondary" href="{$nft->nft_marketplace_url}">
+                        {$nft->title|replace: 'Spirit Bomb :', ''}
+                    </a>
+                </h1>
+                
+                {* marketplace icon *}
+                <div class="uk-margin-medium-bottom">
+                    <a class="noExternalSVG" href="{$nft->nft_marketplace_url}" target="_blank">
+                        {if $nft->nft_marketplace_icon->first->name == "opensea"}                  
+                            <img class="nft-marketplace-icon-opensea" src="{$nft->nft_marketplace_icon->first->featured_image->first->url}" alt="" />
+                        {else}
+                            <img class="nft-marketplace-icon" src="{$nft->nft_marketplace_icon->first->featured_image->first->url}" alt="" />
+                        {/if}
+                    </a>
+                </div>
+                    
+                
+                {* details grid container *}
+                
+                <div class="uk-width-1-1 uk-child-width-auto@m" uk-grid>
+
+                    {* column one *}
+                    
+                    <div class="">
+
+                        {* blockchain *}
+                        <div class="uk-margin-small-bottom">
+                            <img class="nft-blockchain-icon" src="{$nft->nft_blockchain->first->featured_image->first->url}" alt="" />
+                            <span class="uk-text-small uk-text-muted">Blockchain</span>
+                            <br>
+                            <span class="uk-text-small" style="margin-left:35px;">{$nft->nft_blockchain->first->title|capitalize}</span>
+                        </div>
+
+                        {* spirit bomb artist *}
+                        <div class="uk-margin-small-bottom">
+                            <span class="uk-margin-small-right" uk-icon="icon: user; ratio: 1"></span>
+                            <span class="uk-text-small uk-text-muted">Virtual Artist</span>
+                            <br>
+                            <span class="uk-text-small" style="margin-left:35px;">{$nft->artist->first->title}</span>
+                        </div>
+
+                        {* collaborators *}
+                        {if $nft??->collaborator->count() > 0}
+                            <div class="uk-margin-small-bottom">
+                                <span class="uk-margin-small-right" uk-icon="icon: users; ratio: 1"></span>
+                                <span class="uk-text-small uk-text-muted">Collaborators</span>
+                                <br>
+
+                                <div style="margin-left:35px;">
+                                    {foreach $nft->collaborator as $index => $collaborator}
+                                        {if ($index+1) < count($nft->collaborator)}
+                                            <span class="uk-text-small">
+                                                {$collaborator->title} ·
+                                            </span>
+                                        {else}
+                                            <span class="uk-text-small">
+                                                {$collaborator->title}
+                                            </span>
+                                        {/if}
+                                    {/foreach}
+                                </div>
+                            </div>
+                        {/if}                
+
+                        {* smart contract address *}
+                        <div class="uk-width-1-1 uk-margin-small-bottom">
+                            <span class="uk-margin-small-right" uk-icon="icon: info; ratio: 1"></span>
+                            <span class="uk-text-small uk-text-muted">Smart Contract Address</span>
+                            <br>
+                            <span class="uk-text-small" style="margin-left:35px;">
+                                <a class="uk-text-secondary noExternalSVG" href="https://etherscan.io/address/{$nft->nft_contract_address}" alt="" target="_blank">
+                                    {$nft->nft_contract_address}
+                                </a>
+                            </span>
+                        </div>
+
+                        
+                        {* token id *}
+                        {if $nft??->nft_token_id}
+                            <div class="uk-margin-small-bottom">
+                                <span class="uk-margin-small-right" uk-icon="icon: hashtag; ratio: 1"></span>
+                                <span class="uk-text-small uk-text-muted">Token ID</span>
+                                <br>
+                                <span class="uk-text-small" style="margin-left:35px;">
+                                    <a class="noExternalSVG uk-text-secondary" href="https://etherscan.io/nft/{$nft->nft_contract_address}/{$nft->nft_token_id}" target="_blank">
+                                        {$nft->nft_token_id}
+                                    </a>
+                                </span>
+                            </div>
+                        {/if}
+                    </div>
+                    
+
+                    {* column two *}
+
+                    <div class="uk-margin-remove-top">
+                        
+                        {* platform *}
+                        <div class="uk-margin-small-bottom">
+                            <span class="uk-margin-small-right" uk-icon="icon: world; ratio: 1"></span>
+                            <span class="uk-text-small uk-text-muted">Platform</span>
+                            <br>
+                            <span class="uk-text-small" style="margin-left:35px;">
+                                {if $nft->nft_marketplace_icon->first->name == "opensea"}
+                                    <a class="noExternalSVG uk-text-secondary" href="{$nft->nft_marketplace_url}" alt="" target="_blank">OpenSea</a>
+                                {elseif $nft->nft_marketplace_icon->first->name == "zora"}
+                                    <a class="noExternalSVG uk-text-secondary" href="{$nft->nft_marketplace_url}" alt="" target="_blank">Zora</a>
+                                {elseif $nft->nft_marketplace_icon->first->name == "foundation"}
+                                    <a class="noExternalSVG uk-text-secondary" href="{$nft->nft_marketplace_url}" alt="" target="_blank">Foundation</a>
+                                {/if}
+                            </span>
+                        </div>
+                        
+                        {* mint date *}
+                        <div class="uk-margin-small-bottom">
+                            <span class="uk-margin-small-right" uk-icon="icon: calendar; ratio: 1"></span>
+                            <span class="uk-text-small uk-text-muted">Minted on</span>
+                            <br>
+                            <span class="uk-text-small" style="margin-left:35px;">
+                                {$nft->date}    
+                            </span>
+                        </div>
+
+                        {* nft edition amount *}
+                        <div class="uk-margin-small-bottom">
+                            <span class="uk-margin-small-right" uk-icon="icon: copy; ratio: 1"></span>
+                            <span class="uk-text-small uk-text-muted">Edition of</span>
+                            <br>
+                            <span class="uk-text-small" style="margin-left:35px;">{$nft->nft_edition_amount}</span>
+                        </div>
+
+                        {* ipfs link *}
+                        {if $nft??->ipfs_link}
+                            <div class="uk-margin-small-bottom">
+                                <img class="nft-blockchain-icon" src="{$pages->get('ipfs')->featured_image->first->url}" alt="" />
+                                <span class="uk-text-small uk-text-muted">IPFS</span>
+                                <br>
+                                <span class="uk-text-small" style="margin-left:35px;">
+                                    <a class="noExternalSVG uk-text-secondary" href="{$nft->ipfs_link}" target="_blank">Hyperlink</a>
+                                </span>
+                            </div>
+                        {/if}
+                                       
+                    </div>
+                </div>
+            </div>
+        {/foreach}
+    </div>
+</section>
+

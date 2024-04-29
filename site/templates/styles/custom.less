@@ -1,0 +1,381 @@
+// available fonts
+// font-family: 'Oswald', sans-serif;
+// font-family: 'Silkscreen', monospace;
+
+:root[data-theme="theme-light"] {
+    --primary-color: #0072a3;
+    --text-color: #333333;
+    --bg-color: #fafafa;
+    --component-bg-color: #ffffff;
+    --uk-text-secondary: #222222;
+    --uk-text-emphasis: #333333;
+    --header-border-bottom: 1px solid black;
+    --sls-nav-title-border-right: 1px solid black;
+    --index-item-border-top: 1px solid black;
+    --footer-gradient: linear-gradient(179deg, #ffffff, #e0e4ff, #deffe7, #f8e4ff);
+    --footer-border-top: 1px solid black;
+}:root[data-theme="theme-dark"] {
+    --primary-color: #49afd9;
+    --text-color: #e3f5fc;
+    --bg-color: #090d0f;
+    --component-bg-color: #22343c;
+    --uk-text-secondary: #e3f5fc;
+    --uk-text-emphasis: #fafafa;
+    --header-border-bottom: 1px solid rgb(100, 100, 100);;
+    --sls-nav-title-border-right: 1px solid rgb(100, 100, 100);
+    --index-item-border-top: 1px solid rgb(100, 100, 100);
+    --footer-gradient: linear-gradient(0deg, #090d0f, #1c1d28, #121531, #24092f);
+    --footer-border-top: 1px solid rgb(100, 100, 100);
+}
+
+html {
+    // font-family: 'Oswald', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Epilogue-Light';
+    color: var(--text-color);
+}
+
+body {
+    background-color: var(--bg-color)
+}
+  
+@font-face {
+    font-family: 'Aldo the Apache';
+    src:local('Aldo the Apache'),
+        url('/site/templates/styles/fonts/aldotheapache.woff2') format('woff2'),
+        url('/site/templates/styles/fonts/AldotheApache.woff') format('woff'),
+        url('/site/templates/styles/fonts/AldotheApache.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 300;
+}
+
+blockquote {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    font-style: italic;
+    color: #c7bcbc;
+    border-left: 5px solid #bbb;
+    padding-left: 15px;
+}
+
+em {
+    color: #d8dee9;
+}
+
+.sb-font {
+    font-family: 'Aldo the Apache', sans-serif !important;
+    text-transform: uppercase;
+    color: #d8dee9;
+}
+
+.font-bold {
+    font-family: 'Epilogue-Bold';
+}
+
+.font-black  {
+    font-family: 'Epilogue-Black';
+}
+
+.sb-font-hero {
+    letter-spacing: 1.1rem;
+}
+
+.uk-text-secondary {
+    color: var(--uk-text-secondary) !important;
+  }
+
+.uk-text-emphasis {
+    color: var(--uk-text-emphasis) !important;
+  }
+
+h1,
+.uk-h1,
+h2,
+.uk-h2,
+h3,
+.uk-h3,
+h4,
+.uk-h4,
+h5,
+.uk-h5,
+h6,
+.uk-h6,
+.uk-heading-small,
+.uk-heading-medium,
+.uk-heading-large,
+.uk-heading-xlarge,
+.uk-heading-2xlarge {
+    // font-family: 'Oswald', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Epilogue-Thin';
+    color: var(--text-color);
+}
+
+.silkscreen-text {
+    font-family: 'Silkscreen', monospace;
+}
+
+.uk-background-red {
+    background-color: #f01e1e;
+}
+
+//navbar
+.uk-navbar-container:not(.uk-navbar-transparent) {
+    background-color: var(--bg-color);
+}
+
+
+// card image heading on /recents
+.card-mini-heading {
+    border-top: var(--index-item-border-top);
+    padding: 10px 0;
+}
+
+.project-item-categories {
+    border-left: 1px dotted var(--text-color);
+    border-bottom: 1px dotted var(--text-color);
+    padding: 0 0 0 4px;
+}
+
+#external-dark, #external-light {
+    width: 25px;
+    height: 25px;
+    padding-bottom: 5px;
+}
+
+// link color
+a, .uk-link {
+    color: #abb6bb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover, .uk-link:hover, .uk-link-toggle:hover .uk-link {
+    color: #fafafa;
+    text-decoration: underline;
+}
+
+// display external link icons
+a[href^="http"]::after,
+a[href^="https://"]::after
+{
+  content: "";
+  width: 16px;
+  height: 16px;
+  margin: 0 4px 2px 4px;
+  background-color: var(--text-color);
+  -webkit-mask: bottom / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+  mask: bottom / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+}
+
+// display external link icons (smaller icon)
+a.smallExternalSVG[href^="http"]::after,
+a.smallExternalSVG[href^="https://"]::after
+{
+  content: "";
+  width: 10px;
+  height: 10px;
+  margin: 0 4px 2px 4px;
+  background-color: var(--text-color);
+  -webkit-mask: bottom / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+  mask: bottom / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+}
+
+// don't display external link icon after images or svgs
+a:has(> img, svg)::after,
+.project-image > a::after {
+    display: none !important;
+}
+
+// override for firefox to cancel display external link icon after images
+a.noExternalSVG::after {
+    display: none !important;
+}
+
+.noExternalSVG > p > a::after {
+    display: none !important;
+}
+
+a.removeTextDecoration {
+    text-decoration: none !important;
+}
+
+// search engine
+:focus-visible {
+    border-radius: 3rem;
+}
+
+#se-results {
+    background-color: var(--component-bg-color);
+    position: absolute;
+    padding: 1em 3em 0 3em;
+    border-radius: 3rem;
+    z-index: 1000;
+}
+
+#featured-image-bg.lazyLoad {
+    background-image: none !important;
+    background-color: var(--bg-color);
+}
+
+.video-container {
+	position: relative;
+	padding-bottom: 57%;
+	padding-top: 35px;
+	height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: max-content
+}
+
+.hover-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s; /* Adjust the duration of the fade animation (e.g., 0.3s) */
+    cursor: pointer;
+}
+
+.hover-image {
+    opacity: 0;
+}
+
+.image-container:hover .hover-image {
+    opacity: 1;
+}
+
+.image-container:hover .default-image {
+    opacity: 0;
+}
+
+.footer-socials:hover { 
+    filter: invert(80%);
+}
+
+.music-platforms {
+    width:1.4vw;
+}
+
+.music-platforms:hover { 
+    filter: blur(3px);
+}
+
+.release-full:hover .release-details {
+    display: block !important;
+}
+
+.link-spanner{
+    position:absolute; 
+    width:100%;
+    height:100%;
+    top:0;
+    left: 0;
+    z-index: 1;
+}
+
+.nft-marketplace-icon {
+    width: 75px;
+}
+
+.nft-marketplace-icon:hover { 
+    filter: hue-rotate(90deg);
+}
+
+.nft-marketplace-icon-opensea {
+    width: 115px;
+}
+
+.nft-marketplace-icon-opensea:hover {
+    filter: hue-rotate(90deg);
+}
+
+.nft-blockchain-icon {
+    position: relative;
+    width: 25px;
+    left: -3px;
+    margin-right: 5px;
+}
+
+.icon-adjust {
+    position: relative;
+    bottom: 1px;
+}
+
+.news-item-grid-overlay:hover {
+    filter: sepia(1);
+}
+
+.news-item-header-height-min {
+    min-height: 500px;
+}
+
+.news-item-hero-gradient {
+    background: linear-gradient(to bottom, transparent 0%, #090d0f 94%);
+}
+
+// #radio-slideshow {
+//     margin-top: -200px;
+// } 
+
+.hidden {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.mixcloud-footer-widget-body-wrapper {
+    background-color: #000;
+}
+
+@media (max-width: 768px) {
+    .music-platforms {
+        width: 5.5vw;
+    }
+    .release-full:hover .release-details {
+        display: none;
+    }
+
+    #radio-slideshow {
+        margin-top: auto;
+    }
+
+    // fix iframe issue with mixcloud widget on mobile safari iOS
+    .mixcloud-footer-widget-body-wrapper {
+        position: relative !important;
+        height: 100vh;
+        margin-bottom: 20px;
+    }
+}
+

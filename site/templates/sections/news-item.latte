@@ -1,0 +1,100 @@
+<section class="uk-height-viewport">
+    {* background img *}
+    <div 
+        class="uk-width-1-1 uk-background-cover uk-background-center-center uk-animation-fade uk-background-fixed" 
+        style="background-image: url({$page->featured_image->first->url})">
+
+        
+        <div class="uk-width-1-1 news-item-header-height-min uk-flex uk-flex-bottom uk-padding news-item-hero-gradient">
+            <div class="uk-padding-small uk-border-rounded">
+
+                {* date *}
+                <div class="uk-margin-small-bottom uk-text-muted">
+                    <span style="mix-blend-mode: plus-lighter;">{$page->date|replace(' 00:00:00', '')}</span>
+                </div>
+
+                {* title *}
+                <div class="uk-heading-large uk-margin-remove-top sb-font">
+                    {$page->title|noescape}
+                </div>
+
+                {* categories *}
+                <div class="uk-padding-remove-top">
+                    {foreach $pages->get('news')->children()->first->categories as $item}
+                        <span style="position:relative;top:-2.8px;" uk-icon="icon: hashtag; ratio: 1"></span>
+                        <a class="uk-text-emphasis uk-button uk-button-text uk-text-small">{$item->title}</a>
+                    {/foreach}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+    {* main body mobile *}
+    <div class="uk-hidden@m uk-padding-medium uk-margin-medium-left uk-margin-medium-right uk-position-relative">
+        <div class="uk-text-large font-bold">
+            <span style="line-height: 2em;">{$page->body|noescape}</span>
+        </div>
+        
+        {* flyer image if it exists *}
+        <div>
+            {if $page??->flyer->count() > 0}
+                <a href="{$page->flyer->first->url}"><img src="{$page->flyer->first->url}" alt="" /></a>
+            {/if}
+        </div>
+    </div>
+
+    {* main body desktop *}
+    <div class="uk-width-1-1 uk-margin-medium-bottom uk-position-relative" uk-grid>
+        <div class="uk-visible@m uk-width-2-3@m uk-padding-large uk-padding-remove-top uk-padding-remove-right uk-margin-large-left">
+            <div class="uk-text-large">
+                <span style="line-height: 2em;">{$page->body|noescape}</span>
+            </div>
+
+        </div>
+
+        <div class="uk-visible@m uk-width-1-4@m" uk-lightbox>
+            
+            {* featured image inlay *}
+            <div class="uk-margin-medium-bottom">
+                <a href="{$page->featured_image->first->url}"><img src="{$page->featured_image->first->url}" alt="" /></a>
+            </div>
+            
+            {* flyer if it exists *}
+            <div>
+                {if $page??->flyer->count() > 0}
+                    <a href="{$page->flyer->first->url}"><img src="{$page->flyer->first->url}" alt="" /></a>
+                {/if}
+            </div>
+        </div>
+    </div>
+
+    {if $page->gallery->count() > 0}
+        {* gallery *}
+        <div uk-scrollspy="cls: uk-animation-fade; delay: 250; repeat: false">
+            {$rockfrontend->render("/sections/includes/gallery.latte")}
+        </div>
+    {/if}
+
+    {if $page->video_embed->count() > 0}
+        {* video *}
+        <div class="uk-padding-large uk-animation-fade">
+            <div class="video-container">
+                {foreach $page->video_embed as $video}
+                    {$video->embed_code|noescape}
+                {/foreach}
+            </div>
+        </div>
+    {/if}
+
+    <div class="uk-padding uk-animation-fade">
+        <div class="font-bold" style="font-size:3vw;">
+            <h1 class="uk-text-muted uk-heading-line"><span>Browse More News</span></h1>
+        </div>
+        <div>
+            {$rockfrontend->render("/sections/includes/more-news-items.latte")}
+        </div>
+    </div>
+
+</section> 

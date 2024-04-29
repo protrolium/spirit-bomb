@@ -1,0 +1,113 @@
+<header class="uk-width-1-1">
+    <div class="uk-animation-slide-right-medium" uk-sticky="sel-target: .uk-navbar-container; start: 500; animation: uk-animation-fade; show-on-up: true;">
+        
+        {* the mobile nav *}
+        <nav 
+            class="uk-navbar-container uk-hidden@m" 
+            uk-sticky="start: 500; animation: uk-animation-fade; show-on-up: true;" 
+            uk-navbar>
+
+            <div class="uk-navbar-left uk-margin-small-left">
+                <a class="uk-text-lighter uk-text-large uk-text-emphasis" href="{$pages->get('/')->url}">
+                    <img src="{$pages->get('sb-logo-main-e3f5fc')->featured_image->first->url}" alt="" width="40" height="40" />
+                </a>
+            </div>
+
+            <div class="uk-navbar-right uk-padding-small">
+
+                <div classs="uk-animation-fade">
+                    {* <w3m-core-button id="sb-wallet-connect" icon="hide" label="Connect"></w3m-core-button> *}
+                    <a class="uk-button uk-button-primary uk-border-rounded noExternalSVG" href="https://nft.spiritbomb.ai" style="font-size: 16px; text-transform: none;">
+                        Season 1 Pass
+                    </a>
+                    <a class="uk-button uk-button-primary uk-border-rounded noExternalSVG" href="https://nft.spiritbomb.ai" style="font-size: 16px; text-transform: none;">
+                        Season 1 Pass
+                    </a>
+                </div>
+
+                <div id="menuContainer">
+                    <button id="header-nav" class="hamburger-nav" uk-toggle="target: #menu" type="button">
+                        <span uk-icon="icon: menu; ratio: 1.5;"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        {* desktop nav *}
+        
+        <nav class="uk-navbar-container uk-visible@m" uk-navbar>
+            
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    
+                    {* add home + children pages to navItems *}
+                    {var $navItems = new \ProcessWire\PageArray()}
+                    {do $navItems->add($home)}
+                    
+                    {foreach $home->children() as $children}
+                        {do $navItems->add($children)}
+                    {/foreach}
+                    
+                    {* build the menu *}
+                    {foreach $navItems as $item}
+                        <li n:class="$rockfrontend->isActive($item) ? uk-active">
+                            {if $item == $home}
+                                <a href="{$item->url}">Home</span></a>
+                            {elseif $item->name == "wiki"}
+                                <a class="noExternalSVG" href="https://wiki.spiritbomb.ai" target="_blank">
+                                    {$item->title}</span>
+                                </a>
+                            {else}
+                                <a href="{$item->url}">{$item->title}</span></a>
+                            {/if}
+                        </li>
+                    {/foreach}
+                </ul>
+
+                <div classs="uk-animation-fade">
+                    {* <w3m-core-button id="sb-wallet-connect" icon="hide" label="Connect"></w3m-core-button> *}
+                    <a class="uk-button uk-button-primary uk-border-rounded noExternalSVG" href="https://nft.spiritbomb.ai" style="font-size: 16px; text-transform: none;">
+                        Season 1 Pass
+                    </a>
+                </div>
+
+                <div id="logo-header" class="uk-padding-small uk-padding-remove-left sb-nav-logo">
+                    <a class="" href="{$pages->get('/')->url}">
+                        <img 
+                            src="{$pages->get('sb-logo-main')->featured_image->first->url}" 
+                            width="50" height="50" alt="{$pages->get('/')->title}"
+                        >
+                    </a>
+                </div>
+            
+            </div>
+
+        </nav>
+    </div>
+
+    <!-- This is the off-canvas menu -->
+    <div class="uk-width-1-1 uk-animation-fade uk-animation-fast" id="menu" uk-offcanvas>
+        
+        <button id="closeBtn" class="uk-close-large uk-offcanvas-close clickable" type="button" aria-label="Close" uk-close></button>
+        
+        <div class="uk-offcanvas-container uk-flex uk-width-1-1 uk-height-viewport uk-flex-center uk-hidden@m">
+            <nav class="offcanvas-mobile uk-flex-column uk-margin-auto-vertical" uk-navbar>
+
+                {* build the menu *}
+                {foreach $navItems as $item}
+                    <li n:class="$rockfrontend->isActive($item) ? uk-active, uk-text-large, offcanvas-mobile">
+                        {if $item == $home}
+                            <a href="{$item->url}">Home</span></a>
+                        {elseif $item->name == "wiki"}
+                            <a class="noExternalSVG" href="https://wiki.spiritbomb.ai" target="_blank">{$item->title}</span></a>
+                        {else}
+                            <a href="{$item->url}">{$item->title}</span></a>
+                        {/if}
+                    </li>
+                {/foreach}
+            </nav>
+        </div>
+
+    </div>
+
+</header>
