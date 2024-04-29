@@ -3,29 +3,25 @@
 
 # Ignore files related to API keys
 .env
-.env.local
-
-# Ignore Node JS src files
-node_modules/
-
-# Ignore files related to PrePros
-prepros.config
 
 # Ignore config.php database information
-wwwroot/site/config.php
+site/config.php
 
 # Ignore sessions / logs
-wwwroot/site/assets/cache/
-wwwroot/site/assets/logs/
-wwwroot/site/assets/sessions/
+site/assets/cache/
+site/assets/logs/
+site/assets/sessions/
 
 # Ignore UIkit
-wwwroot/site/templates/uikit/
+site/templates/uikit/
+site/templates/bundle/
 
 # Ignore site assets + modules
-wwwroot/site/assets/*
-wwwroot/site/modules/*
-wwwroot/site/api/*
+site/assets/*
+site/modules/*
+site/templates/scripts/build/*
+site/templates/scripts/extras/*
+site/templates/scripts/jsm/*
 
 # Ignore /wire/ core files
-wwwroot/wire/* 
+wire/*
